@@ -8,11 +8,13 @@ body {
 	height: 100%;
 }
 
-#root {
-	width: 100%;
-	float: right;
+.hoge .root {
+	width: 100px;
 }
-#main img {
+
+.hoge .main {
 	display: block;
 	margin: 0 auto;
+	padding: 200px;
+	font-size: 24px;
 }
