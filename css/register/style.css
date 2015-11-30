@@ -17,7 +17,8 @@ div.tab-content p {
 div#tab-unit {
 	position: relative;
 	width: 500px;
-	height: 350px;
+	height: 250px;
+	margin: 0 auto;
 }
 h3.tab {
 	position: absolute;
