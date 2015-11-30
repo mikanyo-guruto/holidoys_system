@@ -1,0 +1,29 @@
+.main h1 {
+	text-align: center;
+	float: left;
+}
+.main .button {
+	float: right;
+}
+.main span {
+	font-size: 12px;
+}
+
+.container {
+	clear: both;
+}
+.container span {
+	float: right;
+}
+.container table {
+	clear: both;
+}
+
+.list {
+	text-align: center;
+}
+
+.list table{
+	margin: 0 auto;
+}
+
