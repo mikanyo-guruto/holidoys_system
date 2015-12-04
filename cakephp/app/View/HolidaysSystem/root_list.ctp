@@ -10,7 +10,7 @@
 <div class="main">
 	<h1>校欠届け一覧</h1>
 
-	<input type="button" onclick="location.href='index.html'" class="btn btn-primary button" value="ログアウト">
+	<?php echo $this->Html->link('ログアウト', array('action' => 'index')); ?>
 
 	<div class="container">
 		<span class="label label-success">確認済み</span><br>
@@ -31,14 +31,14 @@
 				<td>5月5日</td>
 				<td>プログラム授業</td>
 				<td>5月5日の3,4限目なんたら先生...</td>
-				<td><input type="button" onclick="location.href='root_detail_ishigaki.html'" class="btn btn-info" value="詳細"></td>
+				<td><?php echo $this->Html->link('詳細', array('action' => 'root_detail_satou')); ?></td>
 			</tr>
 			<tr class="danger">
 				<td>佐藤太郎</td>
 				<td>5月14日</td>
 				<td>デザイン授業</td>
 				<td>来週の5/14に企業での面接がある...</td>
-				<td><input type="button" onclick="location.href='root_detail_satou.html'" class="btn btn-info" value="詳細"></td>
+				<td><?php echo $this->Html->link('詳細', array('action' => 'root_detail_satou')); ?></td>
 			</tr>
 			</tbody>
 		</table>
