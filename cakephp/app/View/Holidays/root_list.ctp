@@ -24,15 +24,15 @@
 				<th>詳細</th>
 			</tr>
 			<?php foreach($students as $date): ?>
+
 			<tr>
 				<td><?php echo h($date['Holiday']['student_name']) ?></td>
 				<td><?php echo h($date['Holiday']['public_holidays']) ?></td>
-				<td><?php echo h($date['Holiday']['tuition_id']) ?></td>
+				<td><?php echo h($date['Specialized']['name']) ?></td>
 				<td><?php echo h($date['Holiday']['reason']) ?></td>
 				<td><?php echo $this->Html->link('編集', array('action' => 'root_detail', $date['Holiday']['id'])); ?></td>
 			</tr>
 			<?php endforeach; ?>
-			<?php unset($students); ?>
 		</table>
 	</div>
 
