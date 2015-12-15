@@ -36,9 +36,12 @@
 			<th>確認状態</th><td class="red">未確認</td>
 		</tr>
 	</table>
+	<!--
 	<button type="button" onclick="location.href='root_list.html'" class="btn btn-success">
 		<span class="glyphicon glyphicon-ok">この校欠届けを確認する</span>
 	</button>
+	-->
+	<?php echo $this->Html->link('この校欠届けを確認する', array('action' => 'root_list')); ?>
 </div>
 
 </body>

@@ -10,13 +10,12 @@
 <div class="main">
 	<h1>校欠届け一覧</h1>
 
-	<input type="button" onclick="location.href='index.html'" class="btn btn-primary button" value="ログアウト">
+	<?php echo $this->Html->link('ログアウト', array('action' => 'index')); ?>
 
 	<div class="container">
 		<span class="label label-success">確認済み</span><br>
 		<span class="label label-danger">未確認</span>
 		<table class="table">
-			<thead>
 			<tr>
 				<th>名前</th>
 				<th>公欠日</th>
@@ -24,26 +23,20 @@
 				<th>理由</th>
 				<th>詳細</th>
 			</tr>
-			</thead>
-			<tbody>
-			<tr class="success">
-				<td>石垣慶和</td>
-				<td>5月5日</td>
-				<td>プログラム授業</td>
-				<td>5月5日の3,4限目なんたら先生...</td>
-				<td><input type="button" onclick="location.href='root_detail_ishigaki.html'" class="btn btn-info" value="詳細"></td>
+			<?php foreach($students as $date): ?>
+			<tr>
+				<td><?php echo h($date['Holiday']['student_name']) ?></td>
+				<td><?php echo h($date['Holiday']['public_holidays']) ?></td>
+				<td><?php echo h($date['Holiday']['tuition_id']) ?></td>
+				<td><?php echo h($date['Holiday']['reason']) ?></td>
+				<td><?php echo $this->Html->link('編集', array('action' => 'root_detail', $date['Holiday']['id'])); ?></td>
 			</tr>
-			<tr class="danger">
-				<td>佐藤太郎</td>
-				<td>5月14日</td>
-				<td>デザイン授業</td>
-				<td>来週の5/14に企業での面接がある...</td>
-				<td><input type="button" onclick="location.href='root_detail_satou.html'" class="btn btn-info" value="詳細"></td>
-			</tr>
-			</tbody>
+			<?php endforeach; ?>
+			<?php unset($students); ?>
 		</table>
 	</div>
 
+<!--
 	<div class="text-center">
 	<ul class="pagination">
 			<li class="disabled"><a href="#"><<</a></li>
@@ -55,6 +48,7 @@
 			<li><a href="#">>></a></li>
 	</ul>
 	</div>
+-->
 </div>
 </body>
 </html>
