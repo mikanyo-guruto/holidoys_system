@@ -29,7 +29,15 @@
 			$this->set(compact('students', 'specialized'));
 		}
 
-		public function root_detail() {
-            
+		public function root_detail($id = null) {
+			//---nullエラー処理---
+            if(!$id){
+            	//idがnullの時のエラー処理
+            	throw new NotFoundException('idを取得できませんでした。');
+            }
+            //---END NULLエラー---
+            $date = $this->Holiday->findById($id);
+            var_dump($date);
+            $student = $this->set('student', $date);
 		}
 	}

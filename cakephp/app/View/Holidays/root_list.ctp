@@ -33,6 +33,12 @@
 				<td><?php echo $this->Html->link('編集', array('action' => 'root_detail', $date['Holiday']['id'])); ?></td>
 			</tr>
 			<?php endforeach; ?>
+
+			<?php
+				echo $this->Paginator->prev('<<前へ', array(), null, array('class' => 'prev disabled'));
+				echo $this->Paginator->numbers(array('separator' => ''));
+				echo $this->Paginator->next('次へ>>', array(), null, array('class' => 'next disabled'));
+			?>
 		</table>
 	</div>
 

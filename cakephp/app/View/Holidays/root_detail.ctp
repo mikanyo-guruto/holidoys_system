@@ -9,33 +9,44 @@
 
 <div class="main">
 	<div class="page-header">
-		<h1><small>さんの詳細</small></h1>
+		<?php foreach($student as $date): ?>
+		<h1><?php echo h($date['student_name']); ?><small>さんの詳細</small></h1>
 	</div>
 
 	<dl class="dl-horizontal detail">
-		<dt>学籍番号</dt><dd>00a0000000</dd>
-		<dt>学年</dt><dd>4年</dd>
-		<dt>専攻</dt><dd>デザイン</dd>
+		<dt>学籍番号</dt><dd><?php echo h($date['student_number']); ?></dd>
+		<dt>学年</dt><dd><?php echo h($date['school_year']); ?></dd>
+		<dt>専攻</dt><dd><?php echo h($date['specialized_id']); ?></dd>
 	</dl>
 	<br>
 	<h2>校欠情報</h2>
 	<table class="table table-striped">
 		<tr>
-			<th>校欠日</th><td>5月14日</td>
+			<th>校欠日</th><td><?php echo h($date['public_holidays']); ?></td>
 		</tr>
 		<tr>
-			<th>登録日</th><td>5月7日</td>
+			<th>登録日</th><td><?php echo h($date['create_time']); ?></td>
 		</tr>
 		<tr>
-			<th>校欠授業名</th><td>デザイン授業</td>
+			<th>校欠授業名</th><td><?php echo h($date['tuition_id']); ?></td>
 		</tr>
 		<tr>
-			<th>理由</th><td>来週の5/14に企業での面接があるので2限のデザイン授業を校欠をお願いしたいです</td>
+			<th>理由</th><td><?php echo h($date['reason']); ?></td>
 		</tr>
 		<tr>
-			<th>確認状態</th><td class="red">未確認</td>
+			<!-- 未完成 -->
+			<th>確認状態</th><td class="red">
+				<?php 
+					if(h($date['checked']) != 0){
+
+					} 
+				?>
+			</td>
+			<!-- 未完成 -->
 		</tr>
 	</table>
+	<?php endforeach; ?>
+	<?php unset($stundet); ?>
 	<!--
 	<button type="button" onclick="location.href='root_list.html'" class="btn btn-success">
 		<span class="glyphicon glyphicon-ok">この校欠届けを確認する</span>
