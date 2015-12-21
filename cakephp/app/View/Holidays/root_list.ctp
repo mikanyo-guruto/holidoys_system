@@ -28,7 +28,7 @@
 			<tr>
 				<td><?php echo h($date['Holiday']['student_name']) ?></td>
 				<td><?php echo h($date['Holiday']['public_holidays']) ?></td>
-				<td><?php echo h($date['Specialized']['name']) ?></td>
+				<td><?php echo h($date['Tuition']['name']) ?></td>
 				<td><?php echo h($date['Holiday']['reason']) ?></td>
 				<td><?php echo $this->Html->link('編集', array('action' => 'root_detail', $date['Holiday']['id'])); ?></td>
 			</tr>

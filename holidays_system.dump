@@ -16,13 +16,13 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `admin`
+-- Table structure for table `admins`
 --
 
-DROP TABLE IF EXISTS `admin`;
+DROP TABLE IF EXISTS `admins`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admin` (
+CREATE TABLE `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -31,26 +31,26 @@ CREATE TABLE `admin` (
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `admins`
 --
 
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+LOCK TABLES `admins` WRITE;
+/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
+/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `holiday`
+-- Table structure for table `holidays`
 --
 
-DROP TABLE IF EXISTS `holiday`;
+DROP TABLE IF EXISTS `holidays`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `holiday` (
+CREATE TABLE `holidays` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `student_name` varchar(64) NOT NULL,
   `student_number` varchar(12) NOT NULL,
@@ -64,52 +64,54 @@ CREATE TABLE `holiday` (
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `holiday`
+-- Dumping data for table `holidays`
 --
 
-LOCK TABLES `holiday` WRITE;
-/*!40000 ALTER TABLE `holiday` DISABLE KEYS */;
-/*!40000 ALTER TABLE `holiday` ENABLE KEYS */;
+LOCK TABLES `holidays` WRITE;
+/*!40000 ALTER TABLE `holidays` DISABLE KEYS */;
+INSERT INTO `holidays` VALUES (1,'佐藤太郎','1111',2,1,3,'2013-01-01','インターンシップの為',0,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `holidays` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `specialized`
+-- Table structure for table `specializeds`
 --
 
-DROP TABLE IF EXISTS `specialized`;
+DROP TABLE IF EXISTS `specializeds`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `specialized` (
+CREATE TABLE `specializeds` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `specialized`
+-- Dumping data for table `specializeds`
 --
 
-LOCK TABLES `specialized` WRITE;
-/*!40000 ALTER TABLE `specialized` DISABLE KEYS */;
-/*!40000 ALTER TABLE `specialized` ENABLE KEYS */;
+LOCK TABLES `specializeds` WRITE;
+/*!40000 ALTER TABLE `specializeds` DISABLE KEYS */;
+INSERT INTO `specializeds` VALUES (1,'プログラマー',NULL,NULL,NULL);
+/*!40000 ALTER TABLE `specializeds` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tuition`
+-- Table structure for table `tuitions`
 --
 
-DROP TABLE IF EXISTS `tuition`;
+DROP TABLE IF EXISTS `tuitions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tuition` (
+CREATE TABLE `tuitions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(32) NOT NULL,
   `tuition_time` varchar(8) NOT NULL,
@@ -118,16 +120,16 @@ CREATE TABLE `tuition` (
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tuition`
+-- Dumping data for table `tuitions`
 --
 
-LOCK TABLES `tuition` WRITE;
-/*!40000 ALTER TABLE `tuition` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tuition` ENABLE KEYS */;
+LOCK TABLES `tuitions` WRITE;
+/*!40000 ALTER TABLE `tuitions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tuitions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -139,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-08 15:23:31
+-- Dump completed on 2015-12-21 14:51:00

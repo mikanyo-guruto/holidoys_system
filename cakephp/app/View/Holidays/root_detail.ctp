@@ -37,10 +37,13 @@
 			<!-- 未完成 -->
 			<th>確認状態</th><td class="red">
 				<?php 
-					if(h($date['checked']) != 0){
-
-					} 
-				?>
+                    if(h($date['checked']) == false){
+                        echo h($date['checked']);
+                    }
+                    else{
+                        echo 'true';
+                    }
+                ?>
 			</td>
 			<!-- 未完成 -->
 		</tr>
