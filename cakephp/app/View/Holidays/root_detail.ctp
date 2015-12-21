@@ -8,8 +8,8 @@
 <body>
 
 <div class="main">
+    <?php foreach($student as $date): ?>
 	<div class="page-header">
-		<?php foreach($student as $date): ?>
 		<h1><?php echo h($date['student_name']); ?><small>さんの詳細</small></h1>
 	</div>
 
@@ -34,28 +34,32 @@
 			<th>理由</th><td><?php echo h($date['reason']); ?></td>
 		</tr>
 		<tr>
-			<!-- 未完成 -->
-			<th>確認状態</th><td class="red">
+            <th>確認状態</th><td class="red">
 				<?php 
-                    if(h($date['checked']) == false){
-                        echo h($date['checked']);
+                    if(($date['checked']) == false){
+                        echo "<font color='red'>未確認</font>";
                     }
                     else{
-                        echo 'true';
+                        echo "<font color='lime'>確認済み</font>";
                     }
                 ?>
 			</td>
-			<!-- 未完成 -->
 		</tr>
 	</table>
 	<?php endforeach; ?>
-	<?php unset($stundet); ?>
+    <?php 
+        if(($date['checked']) == false){
+            echo $this->Html->link('この公欠届けを確認する', array(
+                    'class' => 'button', 'action' => 'root_list'
+                )
+            );  
+        }
+    ?>
 	<!--
 	<button type="button" onclick="location.href='root_list.html'" class="btn btn-success">
 		<span class="glyphicon glyphicon-ok">この校欠届けを確認する</span>
 	</button>
 	-->
-	<?php echo $this->Html->link('この校欠届けを確認する', array('action' => 'root_list')); ?>
 </div>
 
 </body>
