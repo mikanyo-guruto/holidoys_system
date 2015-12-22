@@ -49,7 +49,7 @@
             
             if($this->Holiday->save($update, false, $check)){
                 $this->Session->setFlash(__('確認しました。'));
-                return $this->redirect($this->referer());
+                return $this->redirect("./root_list");
             }
             else{
                 $this->Session->setFlash(__('更新できませんでした。'));
