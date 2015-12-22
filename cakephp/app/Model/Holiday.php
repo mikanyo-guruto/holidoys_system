@@ -10,7 +10,7 @@
 		'Tuition'
 			=> array(
 				'className' => 'Tuition',
-				'foreignKey' => 'Tuition_id',
+				'foreignKey' => 'tuition_id',
 			),
 		);
 		

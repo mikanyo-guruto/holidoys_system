@@ -2,7 +2,8 @@
 	class HolidaysController extends AppController {
 		
 		public $components = array('Paginator', 'Session');
-
+        public $autoLayout = false;
+        
 		public function index() {
 			
 		}
@@ -30,14 +31,29 @@
 		}
 
 		public function root_detail($id = null) {
-			//---nullエラー処理---
             if(!$id){
-            	//idがnullの時のエラー処理
-            	throw new NotFoundException('idを取得できませんでした。');
+                $this->cakeError('idNull');
             }
-            //---END NULLエラー---
+            
             $date = $this->Holiday->findById($id);
-            var_dump($date);
-            $student = $this->set('student', $date);
+            $this->set('student', $date);
 		}
+        
+        public function check($id = null) {
+            if(!$id){
+                $this->cakeError('idNull');
+            }
+            
+            $update = array('Holiday' => array('id' => $id, 'checked' => 1));
+            $check = array('checked');
+            
+            if($this->Holiday->save($update, false, $check)){
+                $this->Session->setFlash(__('確認しました。'));
+                return $this->redirect($this->referer());
+            }
+            else{
+                $this->Session->setFlash(__('更新できませんでした。'));
+                return $this->redirect($this->referer());
+            }
+        }
 	}

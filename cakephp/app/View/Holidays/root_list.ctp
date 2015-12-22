@@ -2,11 +2,9 @@
 <html lang="ja">
 <head>
 <title></title>
-<link rel="stylesheet" href="css/root_list/style.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="/test/holidoys_system/cakephp/css/bootstrap.min.css">
 </head>
 <body>
-
 <div class="main">
 	<h1>校欠届け一覧</h1>
 
@@ -30,7 +28,7 @@
 				<td><?php echo h($date['Holiday']['public_holidays']) ?></td>
 				<td><?php echo h($date['Tuition']['name']) ?></td>
 				<td><?php echo h($date['Holiday']['reason']) ?></td>
-				<td><?php echo $this->Html->link('詳細', array('action' => 'root_detail', $date['Holiday']['id'])); ?></td>
+				<td><?php echo $this->Html->link('詳細', array('action' => 'root_detail', $date['Holiday']['id']), array('class' => 'btn btn-info')); ?></td>
 			</tr>
 			<?php endforeach; ?>
 
@@ -41,20 +39,6 @@
 			?>
 		</table>
 	</div>
-
-<!--
-	<div class="text-center">
-	<ul class="pagination">
-			<li class="disabled"><a href="#"><<</a></li>
-			<li class="active"><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">>></a></li>
-	</ul>
-	</div>
--->
 </div>
 </body>
 </html>
