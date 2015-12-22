@@ -4,7 +4,7 @@
 		public $components = array('Paginator', 'Session');
 
 		public function index() {
-			
+			$this->autoLayout = false;
 		}
 
 		public function root_list() {
@@ -32,5 +32,9 @@
 
 		public function root_detail_satou() {
 
+		}
+
+		public function register(){
+				$this->autoLayout = false;
 		}
 	}

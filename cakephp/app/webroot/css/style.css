@@ -1,0 +1,64 @@
+.center {
+	text-align:center;
+}
+
+.container {
+	padding:0;
+}
+
+.container > form {
+	text-align: center;
+}
+
+.holiday > .form-control-holidays {
+	width: 40px;
+}
+
+.form-group > .number,
+.form-group > .year,
+.form-group > .subject-titles,
+.form-group > .name {
+	width: 100px !important;
+}
+
+.form-inline > .holidays {
+	width:50px !important;
+}
+
+.form-group > .reason {
+	width:350px;
+	height:200px;
+}
+
+.tab {
+	width: 500px;
+	height: 200px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	margin: 0px　20px;
+}
+
+.nav-tabs {
+	width: 500px;
+	margin: 0px 0px;
+}
+
+.tab > .tab-pane >  .major,
+.tab > .tab-pane > ul{
+	list-style:none;
+	padding:25px;
+}
+
+.form-horizontal .form-group {
+	margin-left: 0;
+}
+
+.tab input {
+	margin-right: 5px;
+}
+
+.form-inline > label {
+	width: 60px;
+	text-align: left !important;
+}

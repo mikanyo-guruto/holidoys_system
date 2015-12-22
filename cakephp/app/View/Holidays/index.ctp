@@ -1,8 +1,8 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" href="css/index/style.css">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="/holidoys_system/cakephp/css/style.css">
+<link rel="stylesheet" href="/holidoys_system/cakephp/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -15,8 +15,7 @@
 	<div class="center">
 		<h1>公欠届け提出サイト</h1>
 		<p>↓↓↓ここから公欠届けを提出してください。↓↓↓</p>
-		
-		<input type="button" onclick="location.href='register.html'" class="btn btn-success" value="公欠届を出す">
+		<?php echo $this->Html->link('公欠届を出す', array('action' => 'register'), array('class' => 'btn btn-primary') ); ?>
 	</div>
 </div>
 
