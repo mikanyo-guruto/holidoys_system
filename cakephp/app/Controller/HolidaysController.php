@@ -60,4 +60,34 @@
             return $this->redirect($this->referer());
         }
     }
-	}
+
+    public function search($check) {
+        $flg = "";
+
+        if($this->request->is('get')){
+            $this->Session->delete('flg');
+
+            $flg = $check;
+
+            $this->Session->write('flg', $check);
+        }
+        else{
+            $flg = $this->Session->read('flg');
+        }
+
+        //ページネータ設定
+        $this->Paginator->settings = array(
+            'Holiday' => array(
+                'conditions' => array(
+                    'checked' => $flg),
+                'limit' => 2,
+                'order' => array(
+                    'create_time' => 'asc'),
+            )
+        );
+
+
+        $students = $this->Paginator->paginate();
+        $this->set(compact('students', 'specialized'));
+    }
+}

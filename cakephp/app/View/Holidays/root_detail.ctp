@@ -2,7 +2,7 @@
 <head>
 <title></title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="/test/holidoys_system/cakephp/css/bootstrap.min.css">
+<?php echo $this->Html->css('bootstrap.min'); ?>
 </head>
 <body>
 <div class="main">
