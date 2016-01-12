@@ -1,8 +1,10 @@
 <html>
 	<head>
 		<title>公欠登録画面</title>
-		<link rel="stylesheet" href="/holidoys_system/cakephp/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/holidoys_system/cakephp/css/style.css">
+		<?php 
+			echo $this->Html->css('bootstrap.min');
+			echo $this->Html->css('style');
+		?>
 	</head>
 	
 	<body>
@@ -111,8 +113,10 @@
 				<p><input type="button" onclick="location.href='index.html'" class="btn btn-success" value="送信"></p>
 			</div>
 		</div>
-
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script type="text/javascript" src="/holidoys_system/cakephp/js/bootstrap.min.js"></script>
+		
+		<?php
+			echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+			echo $this->Html->script('bootstrap.min');
+		?>
 	</body>
 </html>
