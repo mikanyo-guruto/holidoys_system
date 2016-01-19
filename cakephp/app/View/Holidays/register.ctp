@@ -19,7 +19,7 @@
 
 					<div class="form-inline form-group">
 						<label for="student-number" class="control-label">学籍番号</label>
-	                    <input id="student-number" type="text" class="form-control number" />
+	                    <input id="student-number" type="text" class="form-control number"/>
 					</div>
 
 					<div class="form-inline form-group">
@@ -35,14 +35,14 @@
 
 				<div class="form-group">
 					<span class="control-label">専攻名</span>
-					<!--タブ-->
+					<!--tab-->
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#tab1" data-toggle="tab">ゲーム</a></li>
 						<li><a href="#tab2" data-toggle="tab">クリエイター</a></li>
 						<li><a href="#tab3" data-toggle="tab">ものづくり</a></li>
 						<li><a href="#tab4" data-toggle="tab">情報</a></li>
 					</ul>
-					<!-- / タブ-->
+					<!--/tab-->
 					<div id="myTabContent" class="tab-content tab">
 
 						<div class="tab-pane fade in active" id="tab1">
@@ -107,8 +107,15 @@
 					<label for="reason" class="control-label">理由</label>
 					<textarea id="reason" class="form-control reason" rows="7" cols="40"></textarea>
 				</div>
-				
-				<p><input type="button" onclick="location.href='index.html'" class="btn btn-success" value="送信"></p>
+
+				<?php
+					// モデルの用意
+					 echo $this->Form->create('register');
+
+					 echo $this->Form->input('shop_name', array('label' => '支店名'));
+					
+					 echo $this->Form->end('送信');
+				?>
 			</div>
 		</div>
 

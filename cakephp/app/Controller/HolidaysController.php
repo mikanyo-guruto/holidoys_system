@@ -35,6 +35,18 @@
 		}
 
 		public function register(){
-				$this->autoLayout = false;
+			$this->autoLayout = false;
+			
+			if($this->request->is('post')){
+				echo "true";
+				$this->register->create();
+
+				if($this->register->save($this->request->data)){
+					$this->Session->setFlash(__('送信されました'));
+
+					return $this->redirect(array('action' => 'register'));
+				}
+				$this->Session->setFlash(__('送信できませんでした'));
+			}
 		}
 	}
