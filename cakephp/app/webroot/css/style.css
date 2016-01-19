@@ -50,6 +50,12 @@
 	padding:25px;
 }
 
+.major {
+	height : 200px;
+	overflow : scroll;
+	overflow-x : hidden;
+}
+
 .form-horizontal .form-group {
 	margin-left: 0;
 }
