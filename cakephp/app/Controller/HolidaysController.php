@@ -7,6 +7,8 @@
 		public function index() {
 			$this->autoLayout = false;
 		}
+		
+		
 
 		public function root_list() {
 			/*
@@ -40,7 +42,23 @@
 		}
 
 		public function register(){
-				$this->autoLayout = false;
+			$this->autoLayout = false;
+			
+			
+			//授業モデルのロード
+			$this->loadModel('Tuition');
+			
+			//授業DBの参照
+			$tuition = null;
+			for($i=1; $i<=6; $i++){
+				$tuition[$i] = $this->Tuition->find('all', array(
+					'conditions' => array(
+	                	'tuition_time' => $i
+	                				)
+	            		)
+	            );
+	        }
+			$this->set('tuition', $tuition);
 		}
 
     public function check($id = null) {

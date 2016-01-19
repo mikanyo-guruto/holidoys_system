@@ -47,12 +47,12 @@
 
 						<div class="tab-pane fade in active" id="tab1">
 							<ul class="major">
-					    		<li><label><input type="radio" name="game" value="">スーパーゲームクリエイター専攻</label></li>
-					    		<li><label><input type="radio" name="game" value="">ゲーム企画・シナリオ専攻</label></li>
-								<li><label><input type="radio" name="game" value="">ゲームプログラマー専攻</label></li>
-								<li><label><input type="radio" name="game" value="">ゲームキャラクター・グラフィック専攻</label></li>
-								<li><label><input type="radio" name="game" value="">アプリゲーム専攻</label></li>
-								<li><label><input type="radio" name="game" value="">ゲームCGデザイン専攻</label></li>
+                                <li><label><input type="radio" name="creator" value="">クリエイティブデザイン専攻</label></li>
+								<li><label><input type="radio" name="creator" value="">3DCG専攻</label></li>
+								<li><label><input type="radio" name="creator" value="">総合アニメーション専攻</label></li>
+								<li><label><input type="radio" name="creator" value="">マンガデザイナー専攻</label></li>
+								<li><label><input type="radio" name="creator" value="">コミックイラスト専攻</label></li>
+								<li><label><input type="radio" name="creator" value="">メディアクリエイター専攻</label></li>
 							</ul>
 						</div>
 
@@ -97,9 +97,35 @@
 	               		<span class="control-label">日</span>
 					</div>
 
-					<div class="form-inline form-group">
-						<label for="subject-titles" class="control-label">授業名</label>
-	               		<input id="subject-titles" type="text" class="form-control subject-titles"/>
+					<div class="form-group">
+					<span class="control-label">授業名</span>
+					<!--タブ-->
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#tui1" data-toggle="tab">月曜日</a></li>
+						<li><a href="#tui2" data-toggle="tab">火曜日</a></li>
+						<li><a href="#tui3" data-toggle="tab">水曜日</a></li>
+						<li><a href="#tui4" data-toggle="tab">木曜日</a></li>
+                        <li><a href="#tui5" data-toggle="tab">金曜日</a></li>
+                        <li><a href="#tui6" data-toggle="tab">土曜日</a></li>
+					</ul>
+                        
+                    
+					<!-- / タブ-->
+					<div id="myTabContent" class="tab-content tab">
+                        <?php foreach($tuition as $key => $data): ?>
+                      <div class="tab-pane fade in <?php echo $key === 1 ? 'active':''; ?>" id="tui<?php echo $key ?>">
+							<ul class="major">
+                                <?php foreach($data as $tui): ?>
+					    		<li>
+                                    <label>
+                                        <input type="checkbox" name="mon" value="">
+                                        <?php echo h($tui['Tuition']['name']); ?>
+                                    </label>
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+						</div>
+                        <?php endforeach; ?>
 					</div>
 				</div>
 
