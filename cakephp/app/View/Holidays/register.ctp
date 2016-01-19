@@ -140,7 +140,7 @@
 					// モデルの用意
 					 echo $this->Form->create('register');
 
-					 echo $this->Form->input('shop_name', array('label' => '支店名'));
+					 echo $this->Form->input('student_name', array('label' => '支店名'));
 					
 					 echo $this->Form->end('送信');
 				?>

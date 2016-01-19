@@ -76,31 +76,64 @@
 		public function register(){
 			$this->autoLayout = false;
 			
+			// 送信を押した後の処理
 			if($this->request->is('post')){
-				echo "true";
-				$this->register->create();
+				var_dump($this->request->data);
 
+				$data = array(
+					'student_name' => 'aaa',
+					'student_number' => '111',
+					'school_year' => '2',
+					'specialized_id' => '1',
+					'tuition_id' => '1',
+					'public_holidays' => '1',
+					'reason' => 'aaaaaa',
+					'checked' => 1
+				);
+				$data_save = array(
+					'student_name',
+					'student_number',
+					'school_year',
+					'specialized_id',
+					'tuition_id',
+					'public_holidays',
+					'reason',
+					'checked'
+				);
+
+				if($this->Holiday->save($data, false, $data_save)){
+					echo 'true';
+				}else{
+					echo 'false';
+				}
+				/*
+				// フォームデータの保存
 				if($this->register->save($this->request->data)){
 					$this->Session->setFlash(__('送信されました'));
 
-					return $this->redirect(array('action' => 'register'));
+					return $this->redirect(array('action' => 'index'));
 				}
 				$this->Session->setFlash(__('送信できませんでした'));
+				*/
+				//return $this->redirect(array('action' => 'register'));
 			}
-			//授業モデルのロード
-			$this->loadModel('Tuition');
-			
-			//授業DBの参照
-			$tuition = null;
-			for($i=1; $i<=6; $i++){
-				$tuition[$i] = $this->Tuition->find('all', array(
-					'conditions' => array(
-	                	'tuition_time' => $i
-	                				)
-	            		)
-	            );
-	        }
-			$this->set('tuition', $tuition);
+			//　授業名の引用
+			else{
+				//授業モデルのロード
+				$this->loadModel('Tuition');
+				
+				//授業DBの参照
+				$tuition = null;
+				for($i=1; $i<=6; $i++){
+					$tuition[$i] = $this->Tuition->find('all', array(
+						'conditions' => array(
+		                	'tuition_time' => $i
+		                				)
+		            		)
+		            );
+		        }
+				$this->set('tuition', $tuition);
+			}
 		}
 
 		//確認チェック関数
