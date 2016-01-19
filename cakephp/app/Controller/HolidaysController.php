@@ -10,6 +10,36 @@
 		
 		
 
+		//管理者ログインページ
+		public function root_login() {
+			if($this->request->is('post')){
+				$email = $this->request->data('Admin.email');
+				$pass =  $this->request->data('Admin.password');
+				
+				$this->loadModel('Admin');
+				//メールアドレスの確認
+				$data = $this->Admin->find('first', array(
+					'conditions' => array(
+						'Admin.email' => $email
+					))
+				);
+				
+				//メール入力でエラーだったら
+				if(!$data){
+					echo "入力エラーです。";
+				}else{
+					//パスワードチェック
+					if($this->Admin->field('password') === $pass){
+						return $this->redirect("./root_list");
+					}
+					else{
+						echo "入力エラーです。";
+					}
+				}
+			}
+		}
+		
+		//管理者トップページ
 		public function root_list() {
 			/*
 			//holidayテーブルの全てを取得
@@ -32,6 +62,7 @@
 			$this->set(compact('students', 'specialized'));
 		}
 
+		//詳細ページ
 		public function root_detail($id = null) {
             if(!$id){
                 $this->cakeError('idNull');
@@ -41,6 +72,7 @@
             $this->set('student', $date);
 		}
 
+		//登録ページ
 		public function register(){
 			$this->autoLayout = false;
 			
@@ -61,51 +93,53 @@
 			$this->set('tuition', $tuition);
 		}
 
-    public function check($id = null) {
-        if(!$id){
-            $this->cakeError('idNull');
-        }
+		//確認チェック関数
+	    public function check($id = null) {
+	        if(!$id){
+	            $this->cakeError('idNull');
+	        }
 
-        $update = array('Holiday' => array('id' => $id, 'checked' => 1));
-        $check = array('checked');
+	        $update = array('Holiday' => array('id' => $id, 'checked' => 1));
+	        $check = array('checked');
 
-        if($this->Holiday->save($update, false, $check)){
-            $this->Session->setFlash(__('確認しました。'));
-            return $this->redirect("./root_list");
-        }
-        else{
-            $this->Session->setFlash(__('更新できませんでした。'));
-            return $this->redirect($this->referer());
-        }
-    }
+	        if($this->Holiday->save($update, false, $check)){
+	            $this->Session->setFlash(__('確認しました。'));
+	            return $this->redirect("./root_list");
+	        }
+	        else{
+	            $this->Session->setFlash(__('更新できませんでした。'));
+	            return $this->redirect($this->referer());
+	        }
+    	}
 
-    public function search($check) {
-        $flg = "";
+		//確認別にソートする機能
+	    public function search($check) {
+	        $flg = "";
 
-        if($this->request->is('get')){
-            $this->Session->delete('flg');
+	        if($this->request->is('get')){
+	            $this->Session->delete('flg');
 
-            $flg = $check;
+	            $flg = $check;
 
-            $this->Session->write('flg', $check);
-        }
-        else{
-            $flg = $this->Session->read('flg');
-        }
+	            $this->Session->write('flg', $check);
+	        }
+	        else{
+	            $flg = $this->Session->read('flg');
+	        }
 
-        //ページネータ設定
-        $this->Paginator->settings = array(
-            'Holiday' => array(
-                'conditions' => array(
-                    'checked' => $flg),
-                'limit' => 2,
-                'order' => array(
-                    'create_time' => 'asc'),
-            )
-        );
+	        //ページネータ設定
+	        $this->Paginator->settings = array(
+	            'Holiday' => array(
+	                'conditions' => array(
+	                    'checked' => $flg),
+	                'limit' => 2,
+	                'order' => array(
+	                    'create_time' => 'asc'),
+	            )
+	        );
 
 
-        $students = $this->Paginator->paginate();
-        $this->set(compact('students', 'specialized'));
-    }
+	        $students = $this->Paginator->paginate();
+	        $this->set(compact('students', 'specialized'));
+    	}
 }

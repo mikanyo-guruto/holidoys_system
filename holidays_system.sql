@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.2.11
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016 年 1 朁E06 日 04:52
--- サーバのバージョン： 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: 2016 年 1 朁E12 日 07:41
+-- サーバのバージョン： 5.6.21
+-- PHP Version: 5.6.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,14 +27,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `admins` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(16) NOT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- テーブルのデータのダンプ `admins`
+--
+
+INSERT INTO `admins` (`id`, `name`, `email`, `password`, `create_time`, `update_time`, `delete_time`) VALUES
+(1, 'aaa', 'test@example.com', '1231', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -43,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `admins` (
 --
 
 CREATE TABLE IF NOT EXISTS `holidays` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `student_name` varchar(64) NOT NULL,
   `student_number` varchar(12) NOT NULL,
   `school_year` int(1) NOT NULL,
@@ -74,7 +81,7 @@ INSERT INTO `holidays` (`id`, `student_name`, `student_number`, `school_year`, `
 --
 
 CREATE TABLE IF NOT EXISTS `specializeds` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
@@ -114,7 +121,7 @@ INSERT INTO `specializeds` (`id`, `name`, `create_time`, `update_time`, `delete_
 --
 
 CREATE TABLE IF NOT EXISTS `tuitions` (
-  `id` int(11) NOT NULL,
+`id` int(11) NOT NULL,
   `name` varchar(32) NOT NULL,
   `tuition_time` varchar(8) NOT NULL,
   `teacher_name` varchar(32) NOT NULL,
@@ -140,25 +147,25 @@ INSERT INTO `tuitions` (`id`, `name`, `tuition_time`, `teacher_name`, `create_ti
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `holidays`
 --
 ALTER TABLE `holidays`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `specializeds`
 --
 ALTER TABLE `specializeds`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tuitions`
 --
 ALTER TABLE `tuitions`
-  ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -168,22 +175,22 @@ ALTER TABLE `tuitions`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `holidays`
 --
 ALTER TABLE `holidays`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `specializeds`
 --
 ALTER TABLE `specializeds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `tuitions`
 --
 ALTER TABLE `tuitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
