@@ -1,15 +1,17 @@
 <html>
 <head>
 <title></title>
-<link rel="stylesheet" href="/holidoys_system/cakephp/css/style.css">
-<link rel="stylesheet" href="/holidoys_system/cakephp/css/bootstrap.min.css">
+<?php 
+		echo $this->Html->css('bootstrap.min');
+		echo $this->Html->css('style');
+?>
 </head>
 
 <body>
 
 <div class="hoge">
 	<div class="text-right">
-	<?php echo $this->Html->link('管理者ログイン', array('action' => 'root_list')); ?>
+	<?php echo $this->Html->link('管理者ログイン', array('action' => 'root_login')); ?>
 	</div>
 
 	<div class="center">
