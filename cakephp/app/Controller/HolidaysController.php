@@ -101,7 +101,8 @@
 	            );
 	        }
 			$this->set('tuition', $tuition);
-		}
+
+			}
 
 		//確認チェック関数
 	    public function check($id = null) {
