@@ -72,57 +72,38 @@
             $this->set('student', $date);
 		}
 
-		//登録ページ
+		// 登録ページ
 		public function register(){
 			$this->autoLayout = false;
 			
+			$data = $this->request->data;
+
 			// 送信を押した後の処理
 			if($this->request->is('post')){
-				var_dump($this->request->data);
-
-				$data = array(
-					'student_name' => 'aaa',
-					'student_number' => '111',
-					'school_year' => '2',
-					'specialized_id' => '1',
-					'tuition_id' => '1',
-					'public_holidays' => '1',
-					'reason' => 'aaaaaa',
-					'checked' => 1
-				);
-				$data_save = array(
-					'student_name',
-					'student_number',
-					'school_year',
-					'specialized_id',
-					'tuition_id',
-					'public_holidays',
-					'reason',
-					'checked'
-				);
-
-				if($this->Holiday->save($data, false, $data_save)){
-					echo 'true';
+				$data = $this->request->data;
+				$y = date("Y");
+				$m = $data['Holiday']['month'];
+				$d = $data['Holiday']['day'];
+				
+				$public_holiday = date($y . "-" . $m . "-" . $d);
+				$data['Holiday']['public_holiday'] = $public_holiday;
+				var_dump( $data['Holiday']['public_holiday']);
+				
+				if($this->Holiday->save($data)){
+					$this->Session->setFlash(__('登録が完了しました。'));
+					return $this->redirect('index');
 				}else{
-					echo 'false';
+					$this->Session->setFlash(__('登録できませんでした。'));
+					return $this->redirect($this->referer());
 				}
-				/*
-				// フォームデータの保存
-				if($this->register->save($this->request->data)){
-					$this->Session->setFlash(__('送信されました'));
 
-					return $this->redirect(array('action' => 'index'));
-				}
-				$this->Session->setFlash(__('送信できませんでした'));
-				*/
-				//return $this->redirect(array('action' => 'register'));
 			}
 			//　授業名の引用
 			else{
-				//授業モデルのロード
+				// 授業モデルのロード
 				$this->loadModel('Tuition');
 				
-				//授業DBの参照
+				// 授業DBの参照
 				$tuition = null;
 				for($i=1; $i<=6; $i++){
 					$tuition[$i] = $this->Tuition->find('all', array(

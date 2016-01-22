@@ -8,30 +8,38 @@
 	</head>
 	
 	<body>
-
+	<?php echo $this->Form->create('Holiday'); ?>
 		<div class="container">
+		
 			<h1>登録フォーム</h1>
 
 			<div class="holiday-forms">
 				<div class="form-horizontal">
 					<div class="form-inline form-group">
 						<label for="name" class="control-label ">氏名</label>
-	                	<input id="name" type="text" class="form-control name"/>
+						<?php
+							echo $this->Form->input('student_name', array('label' => false));
+						?>
 					</div>
 
 					<div class="form-inline form-group">
 						<label for="student-number" class="control-label">学籍番号</label>
-	                    <input id="student-number" type="text" class="form-control number"/>
+						<?php
+							echo $this->Form->input('student_number', array('label' => false));
+						?>
 					</div>
 
 					<div class="form-inline form-group">
 					<label for="school-year" class="control-label">学年</label>
-	                    <select id="school-year" class="form-control year" />
-	                    	<option value="1">1年</option>
-	                   		<option value="2">2年</option>
-	                   		<option value="3">3年</option>
-	                   		<option value="4">4年</option>
-	                   	</select>
+					<?php
+						$options = array(
+										'1' => '1年',
+										'2' => '2年',
+										'3' => '3年',
+										'4' => '4年'
+										);
+						echo $this->Form->select('school_year', $options, array('empty' => '選択してください'));
+					?>
 					</div>
 				</div>
 
@@ -49,41 +57,65 @@
 
 						<div class="tab-pane fade in active" id="tab1">
 							<ul class="major">
-                                <li><label><input type="radio" name="creator" value="">クリエイティブデザイン専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">3DCG専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">総合アニメーション専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">マンガデザイナー専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">コミックイラスト専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">メディアクリエイター専攻</label></li>
+							<?php
+								$options = array(
+												'7' => 'クリエイティブデザイン',
+												'8' => '3DCG',
+												'9' => '総合アニメーション',
+												'10' => 'マンガデザイナー',
+												'11' => 'コミックイラスト',
+												'12' => 'メディアクリエイター'
+											);
+								$attributes = array('legend' => false, 'hiddenField' => false);
+								echo $this->Form->radio('specialized_id', $options, $attributes);
+							?>
 							</ul>
 						</div>
 
 						<div class="tab-pane fade" id="tab2">
 					    	<ul class="major">
-								<li><label><input type="radio" name="creator" value="">クリエイティブデザイン専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">3DCG専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">総合アニメーション専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">マンガデザイナー専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">コミックイラスト専攻</label></li>
-								<li><label><input type="radio" name="creator" value="">メディアクリエイター専攻</label></li>
+					    	<?php
+								$options = array(
+												'7' => 'クリエイティブデザイン',
+												'8' => '3DCG',
+												'9' => '総合アニメーション',
+												'10' => 'マンガデザイナー',
+												'11' => 'コミックイラスト',
+												'12' => 'メディアクリエイター'
+											);
+								$attributes = array('legend' => false, 'hiddenField' => false);
+								echo $this->Form->radio('specialized_id', $options, $attributes);
+							?>
 							</ul>
 						</div>
 
 						<div class="tab-pane fade" id="tab3">
 							<ul class="major">
-								<li><label><input type="radio" name="product" value="">コミュニケーションロボットAI専攻</label></li>
-								<li><label><input type="radio" name="product" value="">メカトロニクスエンジニア専攻</label></li>
-								<li><label><input type="radio" name="product" value="">次世代プロダクトデザイン専攻</label></li>
-								<li><label><input type="radio" name="product" value="">ライト&イルミネーションデザイン専攻</label></li>
+							<?php
+								$options = array(
+												'13' => 'コミュニケーションロボットAI',
+												'14' => 'メカトロニクスエンジニア',
+												'15' => '次世代プロダクトデザイン',
+												'16' => 'ライト&イルミネーションデザイン'
+											);
+								$attributes = array('legend' => false, 'hiddenField' => false);
+								echo $this->Form->radio('specialized_id', $options, $attributes);
+							?>
 							</ul>
 						</div>
 
 						<div class="tab-pane fade" id="tab4">
 							<ul class="major">
-								<li><label><input type="radio" name="it" value="">スーパーITエンジニア専攻</label></li>
-								<li><label><input type="radio" name="it" value="">プログラマー専攻</label></li>
-								<li><label><input type="radio" name="it" value="">ゲーム・IT専攻</label></li>
-								<li><label><input type="radio" name="it" value="">Web・アプリクリエイター専攻</label></li>
+							<?php
+								$options = array(
+												'17' => 'スーパーITエンジニア',
+												'18' => 'プログラマー',
+												'19' => 'ゲーム・IT',
+												'20' => 'Web・アプリクリエイター'
+											);
+								$attributes = array('legend' => false, 'hiddenField' => false);
+								echo $this->Form->radio('specialized_id', $options, $attributes);
+							?>
 							</ul>
 						</div>
 
@@ -93,9 +125,13 @@
 				<div class="form-horizontal">
 					<div class="form-inline form-group">
 						<label for="holidays" class="control-label">公欠日</label>
-	                	<input id="holiday" type="text" class="form-control holidays" />
+						<?php
+							echo $this->Form->input('month', array('label' => false));
+						?>
 	            		<span class="control-label">月</span>
-	       				<input id="day" type="text" class="form-control holidays" />
+	            		<?php
+	            			echo $this->Form->input('day', array('label' => false));
+	            		?>
 	               		<span class="control-label">日</span>
 					</div>
 
@@ -120,8 +156,18 @@
                                 <?php foreach($data as $tui): ?>
 					    		<li>
                                     <label>
-                                        <input type="checkbox" name="mon" value="">
-                                        <?php echo h($tui['Tuition']['name']); ?>
+                                        <?php
+                                        	$tuition_day = h($tui['Tuition']['name']);
+                                        	$tuition_day_id = h($tui['Tuition']['id']);
+                                        	echo $this->Form->radio('tuition_id',
+                                        		array(
+                                        			$tuition_day_id => $tuition_day
+                                        		),
+                                        		array(
+                                        			'hiddenField' => false
+                                        		)
+                                        	);
+                                        ?>
                                     </label>
                                 </li>
                                 <?php endforeach; ?>
@@ -133,19 +179,13 @@
 
 				<div class="form-group">
 					<label for="reason" class="control-label">理由</label>
-					<textarea id="reason" class="form-control reason" rows="7" cols="40"></textarea>
+					<?php
+						echo $this->Form->textarea('reason');
+					?>
 				</div>
-
-				<?php
-					// モデルの用意
-					 echo $this->Form->create('register');
-
-					 echo $this->Form->input('student_name', array('label' => '支店名'));
-					
-					 echo $this->Form->end('送信');
-				?>
 			</div>
 		</div>
+		<?php echo $this->Form->end('送信'); ?>
 		
 		<?php
 			echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
