@@ -81,13 +81,15 @@
 			// 送信を押した後の処理
 			if($this->request->is('post')){
 				$data = $this->request->data;
+
 				$y = date("Y");
 				$m = $data['Holiday']['month'];
 				$d = $data['Holiday']['day'];
-				
-				$public_holiday = date($y . "-" . $m . "-" . $d);
-				$data['Holiday']['public_holiday'] = $public_holiday;
-				var_dump( $data['Holiday']['public_holiday']);
+				$day_format = $y.'-'.$m.'-'.$d;
+
+				$day = date($day_format);
+				$data['Holiday']['public_holidays'] = $day;
+				var_dump($data['Holiday']['public_holidays']);
 				
 				if($this->Holiday->save($data)){
 					$this->Session->setFlash(__('登録が完了しました。'));
