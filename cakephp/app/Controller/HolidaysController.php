@@ -89,7 +89,6 @@
 
 				$day = date($day_format);
 				$data['Holiday']['public_holidays'] = $day;
-				var_dump($data['Holiday']['public_holidays']);
 
 				if($this->Holiday->save($data)){
 					$this->Session->setFlash(__('登録が完了しました。'));
@@ -98,7 +97,6 @@
 					$this->Session->setFlash(__('登録できませんでした。'));
 					return $this->redirect($this->referer());
 				}
-
 			}
 			//　授業名の引用
 			else{
