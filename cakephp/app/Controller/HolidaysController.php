@@ -72,25 +72,51 @@
             $this->set('student', $date);
 		}
 
-		//登録ページ
+		// 登録ページ
 		public function register(){
 			$this->autoLayout = false;
 			
-			
-			//授業モデルのロード
-			$this->loadModel('Tuition');
-			
-			//授業DBの参照
-			$tuition = null;
-			for($i=1; $i<=6; $i++){
-				$tuition[$i] = $this->Tuition->find('all', array(
-					'conditions' => array(
-	                	'tuition_time' => $i
-	                				)
-	            		)
-	            );
-	        }
-			$this->set('tuition', $tuition);
+			$data = $this->request->data;
+
+			// 送信を押した後の処理
+			if($this->request->is('post')){
+				$data = $this->request->data;
+
+				$y = date("Y");
+				$m = $data['Holiday']['month'];
+				$d = $data['Holiday']['day'];
+				$day_format = $y.'-'.$m.'-'.$d;
+
+				$day = date($day_format);
+				$data['Holiday']['public_holidays'] = $day;
+				var_dump($data['Holiday']['public_holidays']);
+				
+				if($this->Holiday->save($data)){
+					$this->Session->setFlash(__('登録が完了しました。'));
+					return $this->redirect('index');
+				}else{
+					$this->Session->setFlash(__('登録できませんでした。'));
+					return $this->redirect($this->referer());
+				}
+
+			}
+			//　授業名の引用
+			else{
+				// 授業モデルのロード
+				$this->loadModel('Tuition');
+				
+				// 授業DBの参照
+				$tuition = null;
+				for($i=1; $i<=6; $i++){
+					$tuition[$i] = $this->Tuition->find('all', array(
+						'conditions' => array(
+		                	'tuition_time' => $i
+		                				)
+		            		)
+		            );
+		        }
+				$this->set('tuition', $tuition);
+			}
 		}
 
 		//確認チェック関数

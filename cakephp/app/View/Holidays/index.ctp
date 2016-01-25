@@ -14,6 +14,8 @@
 	<?php echo $this->Html->link('管理者ログイン', array('action' => 'root_login')); ?>
 	</div>
 
+	<?php echo $this->Session->flash(); ?>
+
 	<div class="center">
 		<h1>公欠届け提出サイト</h1>
 		<p>↓↓↓ここから公欠届けを提出してください。↓↓↓</p>
