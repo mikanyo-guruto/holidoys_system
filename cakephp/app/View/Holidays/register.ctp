@@ -1,16 +1,16 @@
 <html>
 	<head>
 		<title>公欠登録画面</title>
-		<?php 
+		<?php
 			echo $this->Html->css('bootstrap.min');
 			echo $this->Html->css('style');
 		?>
 	</head>
-	
+
 	<body>
 	<?php echo $this->Form->create('Holiday'); ?>
 		<div class="container">
-		
+
 			<h1>登録フォーム</h1>
 
 			<div class="holiday-forms">
@@ -23,13 +23,18 @@
 					</div>
 
 					<div class="form-inline form-group">
+
 						<label for="student-number" class="control-label">学籍番号</label>
 						<?php
-							echo $this->Form->input('student_number', array('label' => false));
-						?>
-					</div>
-
-					<div class="form-inline form-group">
+							echo $this->Form->input('student_number', array('label' => false));=======
+						<?php
+							echo $this->Form->input('student_number', array(
+														'label' => array(
+															'text' => '学籍番号',
+															'class' => 'control-label'
+														),
+														'class' => 'form-control number'
+													));
 					<label for="school-year" class="control-label">学年</label>
 					<?php
 						$options = array(
@@ -40,22 +45,24 @@
 										);
 						echo $this->Form->select('school_year', $options, array('empty' => '選択してください'));
 					?>
-					</div>
-				</div>
 
-				<div class="form-group">
-					<span class="control-label">専攻名</span>
-					<!--tab-->
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#tab1" data-toggle="tab">ゲーム</a></li>
-						<li><a href="#tab2" data-toggle="tab">クリエイター</a></li>
-						<li><a href="#tab3" data-toggle="tab">ものづくり</a></li>
-						<li><a href="#tab4" data-toggle="tab">情報</a></li>
-					</ul>
-					<!--/tab-->
-					<div id="myTabContent" class="tab-content tab">
-
-						<div class="tab-pane fade in active" id="tab1">
+						<?php
+							echo $this->Form->input('student_number', array(
+														'label' => array(
+															'text' => '学年',
+															'class' => 'control-label'
+														),
+														'type' => 'select',
+														'options' => array(
+															'1年',
+															'2年',
+															'3年',
+															'4年'
+														),
+														'class' => 'form-control year',
+														'empty' => '選択してください'
+													));
+						?>
 							<ul class="major">
 							<?php
 								$options = array(
@@ -146,8 +153,7 @@
                         <li><a href="#tui5" data-toggle="tab">金曜日</a></li>
                         <li><a href="#tui6" data-toggle="tab">土曜日</a></li>
 					</ul>
-                        
-                    
+					
 					<!-- / タブ-->
 					<div id="myTabContent" class="tab-content tab">
                         <?php foreach($tuition as $key => $data): ?>
@@ -186,7 +192,7 @@
 			</div>
 		</div>
 		<?php echo $this->Form->end('送信'); ?>
-		
+
 		<?php
 			echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
 			echo $this->Html->script('bootstrap.min');

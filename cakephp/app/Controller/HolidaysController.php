@@ -7,15 +7,15 @@
 		public function index() {
 			$this->autoLayout = false;
 		}
-		
-		
+
+
 
 		//管理者ログインページ
 		public function root_login() {
 			if($this->request->is('post')){
 				$email = $this->request->data('Admin.email');
 				$pass =  $this->request->data('Admin.password');
-				
+
 				$this->loadModel('Admin');
 				//メールアドレスの確認
 				$data = $this->Admin->find('first', array(
@@ -23,7 +23,7 @@
 						'Admin.email' => $email
 					))
 				);
-				
+
 				//メール入力でエラーだったら
 				if(!$data){
 					echo "入力エラーです。";
@@ -38,7 +38,7 @@
 				}
 			}
 		}
-		
+
 		//管理者トップページ
 		public function root_list() {
 			/*
@@ -75,7 +75,7 @@
 		// 登録ページ
 		public function register(){
 			$this->autoLayout = false;
-			
+
 			$data = $this->request->data;
 
 			// 送信を押した後の処理
@@ -90,7 +90,7 @@
 				$day = date($day_format);
 				$data['Holiday']['public_holidays'] = $day;
 				var_dump($data['Holiday']['public_holidays']);
-				
+
 				if($this->Holiday->save($data)){
 					$this->Session->setFlash(__('登録が完了しました。'));
 					return $this->redirect('index');
@@ -104,7 +104,7 @@
 			else{
 				// 授業モデルのロード
 				$this->loadModel('Tuition');
-				
+
 				// 授業DBの参照
 				$tuition = null;
 				for($i=1; $i<=6; $i++){
@@ -118,7 +118,6 @@
 				$this->set('tuition', $tuition);
 			}
 		}
-
 		//確認チェック関数
 	    public function check($id = null) {
 	        if(!$id){
