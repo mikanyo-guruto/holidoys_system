@@ -51,7 +51,7 @@
 			//ページネータ設定
 			$this->Paginator->settings = array(
             	'Holiday' => array(
-                	'limit' => 2,
+                	'limit' => 10,
                 	'order' => array(
                     	'create_time' => 'asc'
                 	),
@@ -76,30 +76,53 @@
 		public function register(){
 			$this->autoLayout = false;
 
-			$data = $this->request->data;
-
 			// 送信を押した後の処理
 			if($this->request->is('post')){
 				$data = $this->request->data;
 
-				$y = date("Y");
-				$m = $data['Holiday']['month'];
-				$d = $data['Holiday']['day'];
-				$day_format = $y.'-'.$m.'-'.$d;
-
-				$day = date($day_format);
-				$data['Holiday']['public_holidays'] = $day;
-				var_dump($data['Holiday']['public_holidays']);
-
-				if($this->Holiday->save($data)){
-					$this->Session->setFlash(__('登録が完了しました。'));
-					return $this->redirect('index');
-				}else{
-					$this->Session->setFlash(__('登録できませんでした。'));
+				if(
+					$data['Holiday']['student_name'] == "" ||
+					$data['Holiday']['student_number'] == "" ||
+					$data['Holiday']['school_year'] == "" ||
+					$data['Holiday']['specialized_id'] == ""||
+					$data['Holiday']['tuition_id'] == "" ||
+					$data['Holiday']['day'] == "" ||
+					$data['Holiday']['month'] == "" ||
+					$data['Holiday']['reason'] == ""
+				){/*
+					var_dump($data);
+				    var_dump($data['Holiday']['student_name']);
+					var_dump($data['Holiday']['student_number']);
+					var_dump($data['Holiday']['school_year']);
+					var_dump($data['Holiday']['specialized_id']);
+					var_dump($data['Holiday']['tuition_id']);
+					var_dump($data['Holiday']['month']);
+					var_dump($data['Holiday']['day']);
+					var_dump($data['Holiday']['reason']);
+					*/
+					$this->Session->setFlash(__('未入力の項目があります。'));
 					return $this->redirect($this->referer());
-				}
+				}else{
+					// 校欠日をdate形式に変換
+					$y = date("Y");
+					$m = $data['Holiday']['month'];
+					$d = $data['Holiday']['day'];
+					$day_format = $y.'-'.$m.'-'.$d;
 
+					$day = date($day_format);
+					$data['Holiday']['public_holidays'] = $day;
+
+					// もし保存に成功したら
+					if($this->Holiday->save($data)){
+						$this->Session->setFlash(__('登録が完了しました。'));
+						return $this->redirect('index');
+					}else{
+						$this->Session->setFlash(__('登録できませんでした。'));
+						return $this->redirect($this->referer());
+					}
+				}
 			}
+			// 入力画面
 			//　授業名の引用
 			else{
 				// 授業モデルのロード
@@ -157,7 +180,7 @@
 	            'Holiday' => array(
 	                'conditions' => array(
 	                    'checked' => $flg),
-	                'limit' => 2,
+	                'limit' => 10,
 	                'order' => array(
 	                    'create_time' => 'asc'),
 	            )
