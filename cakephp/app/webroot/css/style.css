@@ -1,79 +1,166 @@
-.container {
-	padding:0;
+html {
+    position: relative;
+    min-height: 100%;
 }
 
-.container > form {
-	text-align: center;
+body {
+    margin-bottom: 6rem;
 }
 
-.holiday > .form-control-holidays {
-	width: 40px;
+#flashMessage {
+    margin-top: 20px;
 }
 
-.form-group > .number,
-.form-group > .year,
-.form-group > .subject-titles,
-.form-group > .name {
-	width: 100px !important;
+/* main-layout */
+
+.main-header {
+    width: 100%;
+    height: 65px;
+    background-color: #002a3a;
 }
 
-.form-inline > .holidays {
-	width:50px !important;
+.main-header-content {
+    margin: 0 auto;
 }
 
-.form-group > .reason {
-	width:350px;
-	height:200px;
+.main-header h1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 17px;
+    vertical-align:middle;
+    font-family: arial, sans-serif;
 }
 
-.tab {
-	width: 500px;
-	height: 200px;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	margin: 0px　20px;
+.main-header-logo {
+    margin-top: 10px;
+    vertical-align: middle;
 }
 
-.nav-tabs {
-	width: 500px;
-	margin: 0px 0px;
+.main-footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 5rem;
+    background-color: #002a3a;
 }
 
-.tab > .tab-pane >  .major,
-.tab > .tab-pane > ul{
-	list-style:none;
-	padding:25px;
+.main-footer p {
+    display: inline-block;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
 }
 
-.major {
-	height : 200px;
-	overflow : scroll;
-	overflow-x : hidden;
-}
-
-.form-horizontal .form-group {
-	margin-left: 0;
-}
-
-.tab input {
-	margin-right: 5px;
-}
-
-.form-inline > label {
-	width: 60px;
-	text-align: left !important;
+.main-footer small {
+    color: #fff;
 }
 
 .signin_btn {
-	float: right;
+    float: right;
+    margin-top: 22px;
 }
 
-.information {
-	margin-top: 20px;
-	text-align: center;
+.signin_btn a {
+    color: #fff;
+    padding: 10px 10px;
+    border: 1px solid #fff;
+    text-decoration: none;
 }
 
-.information h1 {
-	font-weight: 600;
+
+/* トップページ */
+
+.information-box {
+    margin: 30px auto 0;
+}
+
+.information-box-left-content {
+    float: left;
+    width: 60%;
+    height: 300px;
+}
+
+.information-box-left-content h1 {
+    margin: 10px 0 0;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.information-box-left-content p {
+    margin-top: 50px;
+    font-size: 90px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.information-box-right-content {
+    float: left;
+    width: 40%;
+    height: 300px;
+    border: 4px solid #000;
+    text-align: center;
+    background-color: #002a3a;
+}
+
+.information-box-right-content span {
+    display: inline-block;
+    font-size: 46px;
+    color: #fff;
+    margin-top: 110px;
+}
+
+
+#now-time {
+    font-family: arial, sans-serif;
+}
+
+/* ログインページ */
+.login-form {
+    width: 400px;
+}
+
+/* 公欠登録ページ */
+.form-inline label {
+    margin-right: 10px;
+    min-width: 60px;
+}
+
+.form-group > .reason {
+    width: 500px;
+    height: 200px;
+}
+
+.tab {
+    width: 500px;
+    height: 200px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs {
+    width: 500px;
+    margin: 0px 0px;
+}
+
+.tab > .tab-pane > .major,
+.tab > .tab-pane > ul {
+    list-style: none;
+    padding: 25px;
+}
+
+.form-horizontal .form-group {
+    margin-left: 0;
+}
+
+.tab input {
+    margin-right: 5px;
+}
+
+.major {
+    height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
