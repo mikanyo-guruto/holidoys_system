@@ -108,27 +108,27 @@
     margin: 30px auto 0;
 }
 
-.information-box-right-content {
+.information-box-left-content {
     float: left;
     padding-left: 10px;
     width: 60%;
     height: 300px;
 }
 
-.information-box-right-content h1 {
+.information-box-left-content h1 {
     margin: 10px 0 0;
     font-size: 34px;
     font-weight: 600;
 }
 
-.information-box-right-content p {
+.information-box-left-content p {
     margin-top: 50px;
     font-size: 90px;
     text-align: center;
     font-weight: 300;
 }
 
-.information-box-left-content {
+.information-box-right-content {
     float: left;
     width: 40%;
     height: 300px;
@@ -137,7 +137,7 @@
     background-color: #002a3a;
 }
 
-.information-box-left-content span {
+.information-box-right-content span {
     display: inline-block;
     font-size: 46px;
     color: #fff;
