@@ -1,79 +1,111 @@
-.container {
-	padding:0;
-}
-
 .container > form {
-	text-align: center;
+    text-align: center;
 }
 
 .holiday > .form-control-holidays {
-	width: 40px;
+    width: 40px;
 }
 
 .form-group > .number,
 .form-group > .year,
 .form-group > .subject-titles,
 .form-group > .name {
-	width: 100px !important;
+    width: 100px !important;
 }
 
 .form-inline > .holidays {
-	width:50px !important;
+    width: 50px !important;
 }
 
 .form-group > .reason {
-	width:350px;
-	height:200px;
+    width: 350px;
+    height: 200px;
 }
 
 .tab {
-	width: 500px;
-	height: 200px;
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	margin: 0px　20px;
+    width: 500px;
+    height: 200px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    margin: 0 px　20px;
 }
 
 .nav-tabs {
-	width: 500px;
-	margin: 0px 0px;
+    width: 500px;
+    margin: 0px 0px;
 }
 
-.tab > .tab-pane >  .major,
-.tab > .tab-pane > ul{
-	list-style:none;
-	padding:25px;
+.tab > .tab-pane > .major,
+.tab > .tab-pane > ul {
+    list-style: none;
+    padding: 25px;
 }
 
 .major {
-	height : 200px;
-	overflow : scroll;
-	overflow-x : hidden;
+    height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
 
 .form-horizontal .form-group {
-	margin-left: 0;
+    margin-left: 0;
 }
 
 .tab input {
-	margin-right: 5px;
+    margin-right: 5px;
 }
 
 .form-inline > label {
-	width: 60px;
-	text-align: left !important;
+    width: 60px;
+    text-align: left !important;
+}
+
+
+/* トップページ */
+
+.main-header {
+    width: 100%;
+    height: 65px;
+    background: #002a3a;
+}
+
+.main-header-content {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.main-header h1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 17px;
+    vertical-align:middle;
+}
+
+.main-header-logo {
+    margin-top: 10px;
+    vertical-align: middle;
 }
 
 .signin_btn {
-	float: right;
+    float: right;
+    margin-top: 22px;
+}
+
+.signin_btn a {
+    color: #fff;
+    padding: 10px 10px;
+    border: 1px solid #fff;
+    text-decoration: none;
 }
 
 .information {
-	margin-top: 20px;
-	text-align: center;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .information h1 {
-	font-weight: 600;
+    font-weight: 600;
 }
