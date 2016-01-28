@@ -129,7 +129,6 @@
 
 .information-box-left-content {
     float: left;
-    padding-left: 10px;
     width: 60%;
     height: 300px;
 }
@@ -168,3 +167,7 @@
     font-family: arial, sans-serif;
 }
 
+/* ログインページ */
+.login-form {
+    width: 400px;
+}
