@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>公欠管理</title>
+  <title>公欠届提出</title>
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -38,6 +38,10 @@
 <?php echo $this->fetch('content'); ?>
 
 <?php echo $this->fetch('script'); ?>
+
+<div class="main-footer">
+  <p><small>Copyright &copy; TECH.C HolidaySystemProjectTeam All Rights Reserved.</small></p>
+</div>
 
 </body>
 </html>
