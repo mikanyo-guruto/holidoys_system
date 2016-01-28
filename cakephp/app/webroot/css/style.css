@@ -7,70 +7,9 @@ body {
     margin-bottom: 6rem;
 }
 
-.container > form {
-    text-align: center;
-}
-
-.holiday > .form-control-holidays {
-    width: 40px;
-}
-
-.form-group > .number,
-.form-group > .year,
-.form-group > .subject-titles,
-.form-group > .name {
-    width: 100px !important;
-}
-
-.form-inline > .holidays {
-    width: 50px !important;
-}
-
-.form-group > .reason {
-    width: 350px;
-    height: 200px;
-}
-
-.tab {
-    width: 500px;
-    height: 200px;
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    margin: 0 px　20px;
-}
-
-.nav-tabs {
-    width: 500px;
-    margin: 0px 0px;
-}
-
-.tab > .tab-pane > .major,
-.tab > .tab-pane > ul {
-    list-style: none;
-    padding: 25px;
-}
-
-.major {
-    height: 200px;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-
-.form-horizontal .form-group {
-    margin-left: 0;
-}
-
-.tab input {
-    margin-right: 5px;
+#flashMessage {
     margin-top: 20px;
 }
-
-.form-inline > label {
-    width: 60px;
-    text-align: left !important;
-}
-
 
 /* main-layout */
 
@@ -160,7 +99,7 @@ body {
     float: left;
     width: 40%;
     height: 300px;
-    border: 4px solid gray;
+    border: 4px solid #000;
     text-align: center;
     background-color: #002a3a;
 }
@@ -180,4 +119,48 @@ body {
 /* ログインページ */
 .login-form {
     width: 400px;
+}
+
+/* 公欠登録ページ */
+.form-inline label {
+    margin-right: 10px;
+    min-width: 60px;
+}
+
+.form-group > .reason {
+    width: 500px;
+    height: 200px;
+}
+
+.tab {
+    width: 500px;
+    height: 200px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs {
+    width: 500px;
+    margin: 0px 0px;
+}
+
+.tab > .tab-pane > .major,
+.tab > .tab-pane > ul {
+    list-style: none;
+    padding: 25px;
+}
+
+.form-horizontal .form-group {
+    margin-left: 0;
+}
+
+.tab input {
+    margin-right: 5px;
+}
+
+.major {
+    height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
 }
