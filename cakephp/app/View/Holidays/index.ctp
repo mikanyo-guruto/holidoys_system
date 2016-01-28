@@ -1,5 +1,10 @@
 <div class="container">
   <div class="row">
+
+    <?php
+      echo $this->Session->flash();
+    ?>
+
     <div class="information-box clearfix">
 
 

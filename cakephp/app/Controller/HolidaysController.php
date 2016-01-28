@@ -3,11 +3,9 @@
   class HolidaysController extends AppController
   {
     public $components = array('Paginator', 'Session');
-    public $autoLayout = false;
 
     public function index()
     {
-      $this->autoLayout = true;
       $this->layout = 'Holidays/layout';
     }
 
@@ -15,7 +13,6 @@
     //管理者ログインページ
     public function root_login()
     {
-      $this->autoLayout = true;
       $this->layout = 'Holidays/layout';
 
       if ($this->request->is('post')) {
@@ -33,14 +30,14 @@
 
         //メール入力でエラーだったら
         if (!$data) {
-          echo "入力エラーです。";
-          return $this->redirect("./root_list");
+          $this->Session->setFlash(__('名前かパスワードが間違えています。'), 'default', array('class' => 'alert alert-danger'));
+          return $this->redirect("./root_login");
         } else {
           //パスワードチェック
           if ($this->Admin->field('password') === $pass) {
             return $this->redirect("./root_list");
           } else {
-            echo "入力エラーです。";
+            $this->Session->setFlash(__('名前かパスワードが間違えています。'), 'default', array('class' => 'alert alert-danger'));
           }
         }
       }
@@ -84,7 +81,7 @@
     // 登録ページ
     public function register()
     {
-      $this->autoLayout = false;
+      $this->layout = 'Holidays/layout';
 
       // 送信を押した後の処理
       if ($this->request->is('post')) {
@@ -110,7 +107,7 @@
 					var_dump($data['Holiday']['day']);
 					var_dump($data['Holiday']['reason']);
 					*/
-          $this->Session->setFlash(__('未入力の項目があります。'));
+          $this->Session->setFlash(__('未入力の項目があります。'), 'default', array('class' => 'alert alert-danger'));
           return $this->redirect($this->referer());
         } else {
           // 校欠日をdate形式に変換
@@ -124,10 +121,10 @@
 
           // もし保存に成功したら
           if ($this->Holiday->save($data)) {
-            $this->Session->setFlash(__('登録が完了しました。'));
+            $this->Session->setFlash(__('登録が完了しました。'), 'default', array('class' => 'alert alert-success'));
             return $this->redirect('index');
           } else {
-            $this->Session->setFlash(__('登録できませんでした。'));
+            $this->Session->setFlash(__('登録できませんでした。'), 'default', array('class' => 'alert alert-danger'));
             return $this->redirect($this->referer());
           }
         }
@@ -163,10 +160,10 @@
       $check = array('checked');
 
       if ($this->Holiday->save($update, false, $check)) {
-        $this->Session->setFlash(__('確認しました。'));
+        $this->Session->setFlash(__('確認しました。', 'default', array('class' => 'alert alert-success')));
         return $this->redirect("./root_list");
       } else {
-        $this->Session->setFlash(__('更新できませんでした。'));
+        $this->Session->setFlash(__('更新できませんでした。', 'default', array('class' => 'alert alert-danger')));
         return $this->redirect($this->referer());
       }
     }

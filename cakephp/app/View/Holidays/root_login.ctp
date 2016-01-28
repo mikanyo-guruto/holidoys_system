@@ -1,5 +1,10 @@
 <div class="container">
   <div class="row">
+
+    <?php
+      echo $this->Session->flash();
+    ?>
+
     <h1>ログイン</h1>
 
     <div class="login-form">
