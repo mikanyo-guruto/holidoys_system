@@ -23,8 +23,8 @@
 
 <body>
 
-<div class="main-header">
-  <div class="main-header-content">
+<div class="main-header container">
+  <div class="main-header-content row">
     <a href="/">
       <img class="main-header-logo" src="/img/logo.png"/>
       <h1>TECH.C</h1>
@@ -36,6 +36,8 @@
 </div>
 
 <?php echo $this->fetch('content'); ?>
+
+<?php echo $this->fetch('script'); ?>
 
 </body>
 </html>
