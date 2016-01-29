@@ -4,7 +4,7 @@
 <title></title>
 <?php 
 		echo $this->Html->css('bootstrap.min');
-		echo $this->Html->css('list_style');
+		echo $this->Html->css('root/list_style');
 ?>
 </head>
 <body>

@@ -17,7 +17,7 @@
 
   <?php
     echo $this->Html->css('bootstrap.min');
-    echo $this->Html->css('style');
+    echo $this->Html->css('user/style');
   ?>
 </head>
 

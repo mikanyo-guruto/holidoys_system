@@ -31,7 +31,6 @@
               'label' => '学年',
               'class' => 'form-control',
               'div' => 'form-inline form-group',
-
               'type' => 'select',
               'options' => array(
                   '1年',

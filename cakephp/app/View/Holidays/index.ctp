@@ -7,14 +7,13 @@
 
     <div class="information-box clearfix">
 
-
       <div class="information-box-left-content">
         <h1>TECH.C 公欠届提出システム</h1>
 
         <p id="now-time">現在時刻</p>
       </div>
 
-      <a href="/Holidays/register">
+      <a href="Holidays/register">
         <div class="information-box-right-content">
           <span>提出する</span>
         </div>
