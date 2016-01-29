@@ -111,6 +111,31 @@ body {
     margin-top: 110px;
 }
 
+.members {
+    width: 70%;
+    margin: 20px auto 0;
+    padding: 20px;
+    border: 3px solid #000;
+}
+
+.members h2 {
+    margin: 0 0 10px;
+}
+
+.members ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.members ul li {
+    font-size: 18px;
+}
+
+.members ul li span {
+    font-size: 24px;
+    font-weight: bold;
+}
 
 #now-time {
     font-family: arial, sans-serif;
