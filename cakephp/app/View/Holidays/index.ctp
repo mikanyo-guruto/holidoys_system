@@ -19,7 +19,18 @@
           <span>提出する</span>
         </div>
       </a>
-
+    </div>
+    <div class="row">
+      <div class="members">
+        <h2>プロジェクトメンバー</h2>
+        <ul>
+          <li><span>プログラマー</span></li>
+          <li>石垣</li>
+          <li>三浦</li>
+          <li><span>マネージャー</span></li>
+          <li>中西</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
