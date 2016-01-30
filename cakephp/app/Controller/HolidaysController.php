@@ -88,7 +88,10 @@
 
     	// 送信を押した後の処理
     	if ($this->request->is('post')) {
-        $data = $this->request->data;
+            $data = $this->request->data;
+            
+            // セッションに受け取ったデータを書き込み
+            $this->Session->write('data', $data);
 
 	        if (
 	            $data['Holiday']['student_name'] == "" ||
@@ -103,9 +106,9 @@
 	        	return $this->redirect($this->referer());
 	        } else {
 	        	// 現在の時刻と選択された時刻のチェック
-                // 今日の日付から過去のものは全てリダイレクト
                 date_default_timezone_set('Asia/Tokyo');
 
+                // public_holidayにデータを代入
                 $y = $data['Holiday']['public_holidays']['year'];
                 $m = $data['Holiday']['public_holidays']['month'];
                 $d = $data['Holiday']['public_holidays']['day'];
@@ -113,9 +116,11 @@
 
                 $data['Holiday']['public_holidays'] = date($date_format);
 
+                // 現在の時刻より未来だったら
                 if($data['Holiday']['public_holidays'] > date('Y-m-d')){
                     // もし保存に成功したら
                     if ($this->Holiday->save($data)) {
+                        $this->Session->delete('data');
                         $this->Session->setFlash(__('登録が完了しました。'), 'default', array('class' => 'alert alert-success'));
                         return $this->redirect('index');
                     } else {

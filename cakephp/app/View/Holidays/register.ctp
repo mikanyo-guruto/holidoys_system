@@ -5,17 +5,28 @@
     <?php
       echo $this->Session->flash();
     ?>
-
     <h1>公欠届提出フォーム</h1>
 
     <div class="holiday-forms">
       <div class="form-horizontal">
         <?php
-          echo $this->Form->input('student_name', array(
-              'label' => '氏名',
-              'class' => 'form-control',
-              'div' => 'form-inline form-group'
-          ));
+          if(isset($_SESSION['data'])) {
+            foreach($_SESSION['data'] as $data):
+
+            echo $this->Form->input('student_name', array(
+                'label' => '氏名',
+                'class' => 'form-control',
+                'div' => 'form-inline form-group',
+                'value' => $data['student_name']
+            ));
+            endforeach;
+          } else {
+            echo $this->Form->input('student_name', array(
+                'label' => '氏名',
+                'class' => 'form-control',
+                'div' => 'form-inline form-group'
+            ));
+          }
         ?>
 
         <?php
