@@ -96,30 +96,36 @@
 	            $data['Holiday']['school_year'] == "" ||
 	            $data['Holiday']['specialized_id'] == "" ||
 	            $data['Holiday']['tuition_id'] == "" ||
-	            $data['Holiday']['day'] == "" ||
-	            $data['Holiday']['month'] == "" ||
+                $data['Holiday']['public_holidays'] == "" ||
 	            $data['Holiday']['reason'] == ""
 	        ) {
 	        	$this->Session->setFlash(__('未入力の項目があります。'), 'default', array('class' => 'alert alert-danger'));
 	        	return $this->redirect($this->referer());
 	        } else {
-	        	// 校欠日をdate形式に変換
-	        	$y = date("Y");
-	        	$m = $data['Holiday']['month'];
-	        	$d = $data['Holiday']['day'];
-	        	$day_format = $y . '-' . $m . '-' . $d;
+	        	// 現在の時刻と選択された時刻のチェック
+                // 今日の日付から過去のものは全てリダイレクト
+                date_default_timezone_set('Asia/Tokyo');
 
-	        	$day = date($day_format);
-	        	$data['Holiday']['public_holidays'] = $day;
+                $y = $data['Holiday']['public_holidays']['year'];
+                $m = $data['Holiday']['public_holidays']['month'];
+                $d = $data['Holiday']['public_holidays']['day'];
+                $date_format = $y.'-'.$m.'-'.$d;
 
-	        	// もし保存に成功したら
-	        	if ($this->Holiday->save($data)) {
-	            	$this->Session->setFlash(__('登録が完了しました。'), 'default', array('class' => 'alert alert-success'));
-	            	return $this->redirect('index');
-	        	} else {
-	        		$this->Session->setFlash(__('登録できませんでした。'), 'default', array('class' => 'alert alert-danger'));
-	        		return $this->redirect($this->referer());
-	        	}
+                $data['Holiday']['public_holidays'] = date($date_format);
+
+                if($data['Holiday']['public_holidays'] > date('Y-m-d')){
+                    // もし保存に成功したら
+                    if ($this->Holiday->save($data)) {
+                        $this->Session->setFlash(__('登録が完了しました。'), 'default', array('class' => 'alert alert-success'));
+                        return $this->redirect('index');
+                    } else {
+                        $this->Session->setFlash(__('登録できませんでした。'), 'default', array('class' => 'alert alert-danger'));
+                        return $this->redirect($this->referer());
+                    }
+                }else{
+                    $this->Session->setFlash(__('今日より後の日付を入力して下さい。'), 'default', array('class' => 'alert alert-danger'));
+                    return $this->redirect($this->referer());
+                }	        	
 	        }
 	    }
     	// 入力画面
