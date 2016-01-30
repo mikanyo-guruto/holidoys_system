@@ -15,5 +15,10 @@
         echo $this->Form->end(array('label' => 'ログイン', 'class' => 'btn btn-primary', 'div' => 'form-group'));
       ?>
     </div>
+
+    <hr>
+
+    <a href="/root_list" class="btn btn-primary" style="margin-bottom: 10px">ログイン処理を省略</a>
+    <p>※デモ版の為の機能です</p>
   </div>
 </div>
