@@ -23,12 +23,17 @@ body {
     margin: 0 auto;
 }
 
+.main-header-content a:hover {
+    text-decoration: none;
+}
+
 .main-header h1 {
     display: inline-block;
     font-size: 22px;
     font-weight: 500;
     color: #fff;
-    margin-top: 17px;
+    margin: 12px 0 0;
+    padding: 10px 0px;
     vertical-align:middle;
     font-family: arial, sans-serif;
 }
