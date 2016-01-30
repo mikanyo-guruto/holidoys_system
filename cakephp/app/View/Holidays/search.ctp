@@ -4,7 +4,7 @@
 <title></title>
 <?php 
 		echo $this->Html->css('bootstrap.min');
-		echo $this->Html->css('list_style');
+		echo $this->Html->css('root/list_style');
 ?>
 </head>
 <body>
@@ -68,7 +68,7 @@
 				echo $this->Paginator->numbers(array('separator' => ''));
 				echo $this->Paginator->next('次へ>>', array(), null, array('class' => 'next disabled'));
 			?>
-            </div>
+        </div>
 	</div>
 </div>
 </body>
