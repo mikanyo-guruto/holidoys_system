@@ -13,11 +13,15 @@
         <p id="now-time">現在時刻</p>
       </div>
 
-      <a href="register">
-        <div class="information-box-right-content">
+      <?php
+        echo $this->Html->link(
+          '<div class="information-box-right-content">
           <span>提出する</span>
-        </div>
-      </a>
+          </div>', 
+          array('action' => 'register'),
+          array('escape' => false)
+        );
+      ?>
     </div>
     <div class="row">
       <div class="members">
