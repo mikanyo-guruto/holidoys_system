@@ -5,17 +5,28 @@
     <?php
       echo $this->Session->flash();
     ?>
-
     <h1>公欠届提出フォーム</h1>
 
     <div class="holiday-forms">
       <div class="form-horizontal">
         <?php
-          echo $this->Form->input('student_name', array(
-              'label' => '氏名',
-              'class' => 'form-control',
-              'div' => 'form-inline form-group'
-          ));
+          if(isset($_SESSION['data'])) {
+            foreach($_SESSION['data'] as $data):
+
+            echo $this->Form->input('student_name', array(
+                'label' => '氏名',
+                'class' => 'form-control',
+                'div' => 'form-inline form-group',
+                'value' => $data['student_name']
+            ));
+            endforeach;
+          } else {
+            echo $this->Form->input('student_name', array(
+                'label' => '氏名',
+                'class' => 'form-control',
+                'div' => 'form-inline form-group'
+            ));
+          }
         ?>
 
         <?php
@@ -121,82 +132,79 @@
 
       <div class="form-horizontal">
         <div class="form-inline form-group">
-          <label for="holidays">公欠日</label>
           <?php
-            echo $this->Form->input('month', array(
-                'label' => false,
-                'class' => 'form-control',
-                'div' => null
-            ));
-          ?>
-          <span class="control-label">月</span>
-          <?php
-            echo $this->Form->input('day', array(
-                'label' => false,
-                'class' => 'form-control',
-                'div' => null
-            ));
-          ?>
-          <span class="control-label">日</span>
-        </div>
-
-        <div class="form-group">
-          <label class="control-label">授業名</label>
-          <!--タブ-->
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#tui1" data-toggle="tab">月曜日</a></li>
-            <li><a href="#tui2" data-toggle="tab">火曜日</a></li>
-            <li><a href="#tui3" data-toggle="tab">水曜日</a></li>
-            <li><a href="#tui4" data-toggle="tab">木曜日</a></li>
-            <li><a href="#tui5" data-toggle="tab">金曜日</a></li>
-            <li><a href="#tui6" data-toggle="tab">土曜日</a></li>
-          </ul>
-
-          <!-- / タブ-->
-          <div id="myTabContent" class="tab-content tab">
-            <?php foreach ($tuition as $key => $data): ?>
-              <div class="tab-pane fade in <?php echo $key === 1 ? 'active' : ''; ?>" id="tui<?php echo $key ?>">
-                <ul class="major">
-                  <?php foreach ($data as $tui): ?>
-                    <li>
-                      <label>
-                        <?php
-                          $tuition_day = h($tui['Tuition']['name']);
-                          $tuition_day_id = h($tui['Tuition']['id']);
-                          echo $this->Form->radio('tuition_id',
-                              array(
-                                  $tuition_day_id => $tuition_day
-                              ),
-                              array(
-                                  'hiddenField' => false
-                              )
-                          );
-                        ?>
-                      </label>
-                    </li>
-                  <?php endforeach; ?>
-                </ul>
-              </div>
-            <?php endforeach; ?>
-          </div>
-        </div>
-
-        <label for="reason" class="control-label">理由</label>
-
-        <div class="form-group">
-          <?php
-            echo $this->Form->textarea('reason', array(
-                'class' => 'form-control reason'
+            echo $this->Form->input('public_holidays', array(
+              'label' => '公欠日',
+              'type' => 'date',
+              'class' => 'form-control',
+              'dateFormat' => 'YMD',
+              'monthNames' => false,
+              'maxYear' => date('Y')+1,
+              'minYear' => date('Y'),
+              'separator' => array('年', '月', '日'),
+              'empty' => '選択してください'
             ));
           ?>
         </div>
       </div>
-    </div>
-    <?php echo $this->Form->end(array('label' => '提出する', 'class' => 'btn btn-primary', 'div' => 'form-group')); ?>
 
-    <?php
-      echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
-      echo $this->Html->script('bootstrap.min');
-    ?>
+      <div class="form-group">
+        <label class="control-label">授業名</label>
+        <!--タブ-->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tui1" data-toggle="tab">月曜日</a></li>
+          <li><a href="#tui2" data-toggle="tab">火曜日</a></li>
+          <li><a href="#tui3" data-toggle="tab">水曜日</a></li>
+          <li><a href="#tui4" data-toggle="tab">木曜日</a></li>
+          <li><a href="#tui5" data-toggle="tab">金曜日</a></li>
+          <li><a href="#tui6" data-toggle="tab">土曜日</a></li>
+        </ul>
+
+        <!-- / タブ-->
+        <div id="myTabContent" class="tab-content tab">
+          <?php foreach ($tuition as $key => $data): ?>
+            <div class="tab-pane fade in <?php echo $key === 1 ? 'active' : ''; ?>" id="tui<?php echo $key ?>">
+              <ul class="major">
+                <?php foreach ($data as $tui): ?>
+                  <li>
+                    <label>
+                      <?php
+                        $tuition_day = h($tui['Tuition']['name']);
+                        $tuition_day_id = h($tui['Tuition']['id']);
+                        echo $this->Form->radio('tuition_id',
+                            array(
+                                $tuition_day_id => $tuition_day
+                            ),
+                            array(
+                                'hiddenField' => false
+                            )
+                        );
+                      ?>
+                    </label>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          <?php endforeach; ?>
+        </div>
+      </div>
+
+      <label for="reason" class="control-label">理由</label>
+
+      <div class="form-group">
+        <?php
+          echo $this->Form->textarea('reason', array(
+              'class' => 'form-control reason'
+          ));
+        ?>
+      </div>
+    </div>
+  </div>
+  <?php echo $this->Form->end(array('label' => '提出する', 'class' => 'btn btn-primary', 'div' => 'form-group')); ?>
+
+  <?php
+    echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+    echo $this->Html->script('bootstrap.min');
+  ?>
   </div>
 </div>
