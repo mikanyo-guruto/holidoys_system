@@ -136,13 +136,13 @@
             echo $this->Form->input('public_holidays', array(
               'label' => '公欠日',
               'type' => 'date',
-              'class' => 'form-control',
+              'class' => 'form-control public_holidays',
               'dateFormat' => 'YMD',
               'monthNames' => false,
               'maxYear' => date('Y')+1,
               'minYear' => date('Y'),
               'separator' => array('年', '月', '日'),
-              'empty' => '選択してください'
+              'empty' => ' '
             ));
           ?>
         </div>
@@ -164,7 +164,7 @@
         <div id="myTabContent" class="tab-content tab">
           <?php foreach ($tuition as $key => $data): ?>
             <div class="tab-pane fade in <?php echo $key === 1 ? 'active' : ''; ?>" id="tui<?php echo $key ?>">
-              <ul class="major">
+              <ul class="tuition">
                 <?php foreach ($data as $tui): ?>
                   <li>
                     <label>
@@ -172,12 +172,8 @@
                         $tuition_day = h($tui['Tuition']['name']);
                         $tuition_day_id = h($tui['Tuition']['id']);
                         echo $this->Form->radio('tuition_id',
-                            array(
-                                $tuition_day_id => $tuition_day
-                            ),
-                            array(
-                                'hiddenField' => false
-                            )
+                            array($tuition_day_id => $tuition_day),
+                            array('hiddenField' => false)
                         );
                       ?>
                     </label>
