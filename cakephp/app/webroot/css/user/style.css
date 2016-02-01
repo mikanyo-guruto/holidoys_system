@@ -191,10 +191,17 @@ body {
 
 .major {
     height: 200px;
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
+/* 公欠日選択 */
 .form-horizontal .public_holidays {
 	width: 85px;
+}
+
+/* 授業名選択 */
+.tuition {
+	height: 200px;
+	overflow: scroll;
+	overflow-x: hidden;
 }
