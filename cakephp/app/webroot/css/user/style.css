@@ -194,3 +194,7 @@ body {
     overflow: scroll;
     overflow-x: hidden;
 }
+
+.form-horizontal .public_holidays {
+	width: 85px;
+}

@@ -136,13 +136,13 @@
             echo $this->Form->input('public_holidays', array(
               'label' => '公欠日',
               'type' => 'date',
-              'class' => 'form-control',
+              'class' => 'form-control public_holidays',
               'dateFormat' => 'YMD',
               'monthNames' => false,
               'maxYear' => date('Y')+1,
               'minYear' => date('Y'),
               'separator' => array('年', '月', '日'),
-              'empty' => '選択してください'
+              'empty' => ' '
             ));
           ?>
         </div>
