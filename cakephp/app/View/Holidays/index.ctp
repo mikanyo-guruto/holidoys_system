@@ -68,4 +68,9 @@ document.getElementById("now-time").innerHTML = hour + ":" + min + ":" + sec +"ï
 
 setInterval('welcomeToHawaii()', 1000);
 
+$(window).load(function()
+{
+  window.setTimeout("$('#flashMessage').fadeOut('slow')", 3000);
+});
+
 <?php $this->Html->scriptEnd(); ?>

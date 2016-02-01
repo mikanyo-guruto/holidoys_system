@@ -37,14 +37,9 @@
 
 <?php echo $this->fetch('content'); ?>
 
-<?php echo $this->fetch('script'); ?>
 <script src="/js/jquery-2.2.0.min.js"></script>
-<script>
-  $(window).load(function()
-  {
-    window.setTimeout("$('#flashMessage').fadeOut('slow')", 1000);
-  });
-</script>
+<?php echo $this->fetch('script'); ?>
+
 
 <div class="main-footer">
   <p><small>Copyright &copy; TECH.C HolidaySystemProjectTeam All Rights Reserved.</small></p>
