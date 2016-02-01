@@ -13,5 +13,12 @@
 				'foreignKey' => 'tuition_id',
 			),
 		);
+
+			public $validate = [
+					'student_number' => [
+							'rule' => array('maxLength', 8),
+							'required' => true
+					]
+			];
 		
     }
