@@ -10,10 +10,23 @@
     <div class="holiday-forms">
       <div class="form-horizontal">
         <?php
-          echo $this->Form->input('student_name', array(
-              'label' => '氏名',
-              'class' => 'form-control',
-              'div' => 'form-inline form-group'));
+          if(isset($_SESSION['data'])) {
+            foreach($_SESSION['data'] as $data):
+
+            echo $this->Form->input('student_name', array(
+                'label' => '氏名',
+                'class' => 'form-control',
+                'div' => 'form-inline form-group',
+                'value' => $data['student_name']
+            ));
+            endforeach;
+          } else {
+            echo $this->Form->input('student_name', array(
+                'label' => '氏名',
+                'class' => 'form-control',
+                'div' => 'form-inline form-group'
+            ));
+          }
         ?>
 
         <?php
@@ -21,7 +34,7 @@
               'label' => '学籍番号',
               'class' => 'form-control',
               'div' => 'form-inline form-group'
-          ), null);
+          ));
         ?>
 
         <?php
