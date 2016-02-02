@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>公欠届提出システム</title>
+  <title>公欠届管理システム</title>
   <meta charset="utf-8">
   <meta name="description" content="TECH.C.公欠提出システムです。ここから公欠届を提出する事ができます。">
   <meta name="author" content="HolidaySystemProjectTeam">
