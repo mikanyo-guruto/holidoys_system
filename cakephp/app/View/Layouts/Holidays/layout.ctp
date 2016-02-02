@@ -18,6 +18,7 @@
   <?php
     echo $this->Html->css('bootstrap.min');
     echo $this->Html->css('user/style');
+    echo $this->Html->css('user/error');
   ?>
 </head>
 
