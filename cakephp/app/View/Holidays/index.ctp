@@ -8,7 +8,7 @@
     <div class="information-box clearfix">
 
       <div class="information-box-left-content">
-        <h1>TECH.C. 公欠届提出システム</h1>
+        <h1>TECH.C. 公欠届管理システム</h1>
 
         <p id="now-time">現在時刻</p>
       </div>
@@ -27,11 +27,11 @@
       <div class="members">
         <h2>プロジェクトメンバー</h2>
         <ul>
-          <li><span>プログラマー</span></li>
-          <li>プログラマー専攻 2年 石垣 慶和</li>
-          <li>スーパーITエンジニア専攻 2年 三浦 桂輔</li>
-          <li><span>マネージャー</span></li>
-          <li>スーパーITエンジニア専攻 4年 中西 政浩</li>
+          <li><span class="members-title">プログラマー</span></li>
+          <li><span class="members-major">プログラマー専攻 2年</span> 石垣 慶和</li>
+          <li><span class="members-major">スーパーITエンジニア専攻 2年</span> 三浦 桂輔</li>
+          <li><span class="members-title">マネージャー</span></li>
+          <li><span class="members-major">スーパーITエンジニア専攻 4年</span> 中西 政浩</li>
         </ul>
       </div>
     </div>

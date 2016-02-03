@@ -137,8 +137,13 @@ body {
     font-size: 18px;
 }
 
-.members ul li span {
+.members-title {
     font-size: 24px;
+    font-weight: bold;
+}
+
+.members-major {
+    font-size: 12px;
     font-weight: bold;
 }
 
