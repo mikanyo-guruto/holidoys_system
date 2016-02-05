@@ -103,7 +103,7 @@
                 }
 			} else {
 				// バリデーションでエラー
-				$this->Session->setFlash(__('バリデーションエラー'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('エラーがあります'), 'default', array('class' => 'alert alert-danger'));
 				$this->loadTuition();
                 return $this->render('/Holidays/register');
             }
