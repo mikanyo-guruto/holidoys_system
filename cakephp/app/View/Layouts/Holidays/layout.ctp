@@ -35,7 +35,7 @@
           echo $this->Html->link('ログイン', array('action' => 'root_login'));
         }
         if(isset($logout_button)){
-          echo $this->Html->link('ログアウト', array('action' => 'index'), array('class' => 'btn btn-primary login'));
+          echo $this->Html->link('ログアウト', array('action' => 'index'));
         }
       ?>
     </div>
