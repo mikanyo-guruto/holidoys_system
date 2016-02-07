@@ -48,6 +48,7 @@
     public function root_list()
     {
     	$this->layout = 'Holidays/layout';
+    	$this->set('logout_button','true');
     	/*
     	//holidayテーブルの全てを取得
     	$date = $this->Holiday->find('all');
@@ -85,8 +86,8 @@
     // 登録ページ
     public function register()
     {
-    	$this->set('login_button','true');
     	$this->layout = 'Holidays/layout';
+    	$this->set('login_button','true');
 
     	// 送信を押した後の処理
     	if ($this->request->is('post')) {
@@ -157,7 +158,8 @@
     //確認別にソートする機能
     public function search($check)
     {
-    	$this->layout = false;
+        $this->layout = 'Holidays/layout';
+        $this->set('logout_button','true');
 
     	$flg = "";
 
