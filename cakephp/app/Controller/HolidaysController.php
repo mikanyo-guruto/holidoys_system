@@ -47,7 +47,6 @@
     //管理者トップページ
     public function root_list()
     {
-    	$this->set('logout_button','true');
     	$this->layout = 'Holidays/layout';
     	/*
     	//holidayテーブルの全てを取得
@@ -73,7 +72,7 @@
     //詳細ページ
     public function root_detail($id = null)
     {
-    	$this->layout = false;
+    	$this->layout = 'Holidays/layout';
 
     	if (!$id) {
     		$this->cakeError('idNull');

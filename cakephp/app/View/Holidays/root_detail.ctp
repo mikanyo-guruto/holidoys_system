@@ -1,17 +1,9 @@
-<html>
-<head>
-<title></title>
-<meta charset="UTF-8">
-<?php echo $this->Html->css('bootstrap.min'); ?>
-</head>
-<body>
 <div class="main">
-	<div class="container">
-	    <?php echo $this->Html->link(
-	        '戻る', 
-	        array('controller' => 'holidays', 'action' => './root_list'),
-	        array('class' => 'btn btn-default'))
-	    ?>
+	<div class="container">	
+
+		<?php
+			echo $this->Session->flash();
+		?>
 		<div class="page-header">
 			<h1><?php echo h($student['Holiday']['student_name']); ?><small>さんの詳細</small></h1>
 		</div>
@@ -69,6 +61,3 @@
 	    ?>
     </div>
 </div>
-
-</body>
-</html>
