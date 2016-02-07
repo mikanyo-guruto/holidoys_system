@@ -7,6 +7,7 @@
     public function index()
     {
     	$this->layout = 'Holidays/layout';
+    	$this->set('login_button','true');
     }
 
 
@@ -46,7 +47,8 @@
     //管理者トップページ
     public function root_list()
     {
-    	$this->layout = false;
+    	$this->set('logout_button','true');
+    	$this->layout = 'Holidays/layout';
     	/*
     	//holidayテーブルの全てを取得
     	$date = $this->Holiday->find('all');
@@ -84,6 +86,7 @@
     // 登録ページ
     public function register()
     {
+    	$this->set('login_button','true');
     	$this->layout = 'Holidays/layout';
 
     	// 送信を押した後の処理
