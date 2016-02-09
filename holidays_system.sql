@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 2016 年 1 朁E12 日 07:41
+-- Generation Time: 2016 年 2 朁E09 日 03:25
 -- サーバのバージョン： 5.6.21
 -- PHP Version: 5.6.3
 
@@ -62,17 +62,19 @@ CREATE TABLE IF NOT EXISTS `holidays` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 
 --
 -- テーブルのデータのダンプ `holidays`
 --
 
 INSERT INTO `holidays` (`id`, `student_name`, `student_number`, `school_year`, `specialized_id`, `tuition_id`, `public_holidays`, `reason`, `checked`, `create_time`, `update_time`, `delete_time`) VALUES
-(1, '佐藤太郎', '1111', 2, 1, 1, '2013-01-01', 'インターンシップの為', 1, NULL, NULL, NULL),
-(2, '田中太郎', '13d319280', 3, 1, 1, '2015-12-09', '企業面接の為', 0, NULL, NULL, NULL),
-(3, '鈴木太郎', '23213123', 2, 1, 1, '2015-12-23', 'ｄｄｄｄｄｄｄｄｄｄｄｄｄｄ', 1, NULL, NULL, NULL),
-(4, '下山太郎', '22222222222', 4, 2, 2, '2015-12-02', 'あああああああああ', 0, NULL, NULL, NULL);
+(16, '石垣慶和', '111', 1, 18, 6, '2017-04-04', 'インターンシップの為、お休みさせていただきます。', 1, NULL, NULL, NULL),
+(17, '山田太郎', '112', 3, 9, 5, '2016-06-15', '忌引きです', 0, NULL, NULL, NULL),
+(18, '三浦桂輔', '113', 1, 17, 4, '2017-04-07', 'インターンシップの予定があるため。', 0, NULL, NULL, NULL),
+(19, '石垣こはる', '114', 0, 8, 6, '2016-09-28', '忌引き', 1, NULL, NULL, NULL),
+(20, '高橋純', '119', 2, 15, 2, '2016-01-15', 'インターンシップのため休みます', 0, NULL, NULL, NULL),
+(21, '佐藤湊', '156', 3, 3, 1, '2016-09-14', '就職面接のため休みます', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -128,16 +130,19 @@ CREATE TABLE IF NOT EXISTS `tuitions` (
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `delete_time` datetime DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 --
 -- テーブルのデータのダンプ `tuitions`
 --
 
 INSERT INTO `tuitions` (`id`, `name`, `tuition_time`, `teacher_name`, `create_time`, `update_time`, `delete_time`) VALUES
-(1, '3,4限 デザイン授業', '1', 'たかし先生', NULL, NULL, NULL),
+(1, '3,4限 デザイン授業', '1', '石井先生', NULL, NULL, NULL),
 (2, '2限 ホームルーム', '2', '各担任', NULL, NULL, NULL),
-(3, '5,6限 プログラマー', '5', 'たろう先生', NULL, NULL, NULL);
+(3, '5,6限 プログラマー', '5', '田中先生', NULL, NULL, NULL),
+(4, '4限 プログラム授業', '3', '齋藤先生', NULL, NULL, NULL),
+(5, '3限デザイン授業', '4', '佐藤先生', NULL, NULL, NULL),
+(6, '1,2限 web授業', '6', '高橋先生', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -180,7 +185,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `holidays`
 --
 ALTER TABLE `holidays`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `specializeds`
 --
@@ -190,7 +195,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=21;
 -- AUTO_INCREMENT for table `tuitions`
 --
 ALTER TABLE `tuitions`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
