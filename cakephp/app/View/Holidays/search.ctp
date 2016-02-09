@@ -1,3 +1,6 @@
+<?php
+	echo $this->Html->css('root/list_style');
+?>
 <div class="container">
 	<div class="row">
 		 <?php
@@ -59,9 +62,10 @@
 
         <div class="paginator">
 			<?php
-				echo $this->Paginator->prev('<<前へ', array(), null, array('class' => 'prev disabled'));
-				echo $this->Paginator->numbers(array('separator' => ''));
-				echo $this->Paginator->next('次へ>>', array(), null, array('class' => 'next disabled'));
+				echo $this->Paginator->numbers(array(
+					'separator' => '',
+					'before' => $this->Paginator->hasPrev() ? $this->Paginator->prev('<<前へ'). '' : '',
+        			'after' => $this->Paginator->hasNext() ? ''.$this->Paginator->next('次へ>>') : '',));
 			?>
         </div>
 	</div>
