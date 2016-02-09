@@ -21,7 +21,7 @@
 			],
 
 			'student_number' => [
-				'rule' => array('maxLength', 8),
+				'rule' => array('maxLength', 12),
 			],
 
 			'school_year' => [
