@@ -1,3 +1,6 @@
+<?php
+	echo $this->Html->css('root/list_style');
+?>
 <div class="container">
 	<div class="row">
 	    <?php

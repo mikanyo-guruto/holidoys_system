@@ -49,6 +49,7 @@
     {
     	$this->layout = 'Holidays/layout';
     	$this->set('logout_button','true');
+    	
     	/*
     	//holidayテーブルの全てを取得
     	$date = $this->Holiday->find('all');
