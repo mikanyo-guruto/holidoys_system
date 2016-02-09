@@ -56,6 +56,7 @@ abstract class CacheEngine {
 			sort($this->settings['groups']);
 			$this->_groupPrefix = str_repeat('%s_', count($this->settings['groups']));
 		}
+		date_default_timezone_set('Asia/Tokyo');
 		if (!is_numeric($this->settings['duration'])) {
 			$this->settings['duration'] = strtotime($this->settings['duration']) - time();
 		}
