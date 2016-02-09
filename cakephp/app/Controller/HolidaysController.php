@@ -7,6 +7,7 @@
     public function index()
     {
     	$this->layout = 'Holidays/layout';
+    	$this->set('login_button','true');
     }
 
 
@@ -46,7 +47,9 @@
     //管理者トップページ
     public function root_list()
     {
-    	$this->layout = false;
+    	$this->layout = 'Holidays/layout';
+    	$this->set('logout_button','true');
+    	
     	/*
     	//holidayテーブルの全てを取得
     	$date = $this->Holiday->find('all');
@@ -71,7 +74,7 @@
     //詳細ページ
     public function root_detail($id = null)
     {
-    	$this->layout = false;
+    	$this->layout = 'Holidays/layout';
 
     	if (!$id) {
     		$this->cakeError('idNull');
@@ -85,6 +88,7 @@
     public function register()
     {
     	$this->layout = 'Holidays/layout';
+    	$this->set('login_button','true');
 
     	// 送信を押した後の処理
     	if ($this->request->is('post')) {
@@ -155,7 +159,8 @@
     //確認別にソートする機能
     public function search($check)
     {
-    	$this->layout = false;
+        $this->layout = 'Holidays/layout';
+        $this->set('logout_button','true');
 
     	$flg = "";
 

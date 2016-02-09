@@ -30,7 +30,14 @@
       <h1>TECH.C.</h1>
     </a>
     <div class="signin_btn clearfix">
-      <?php echo $this->Html->link('ログイン', array('action' => 'root_login')); ?>
+      <?php 
+        if(isset($login_button)){
+          echo $this->Html->link('ログイン', array('action' => 'root_login'));
+        }
+        if(isset($logout_button)){
+          echo $this->Html->link('ログアウト', array('action' => 'index'));
+        }
+      ?>
     </div>
   </div>
 </div>
