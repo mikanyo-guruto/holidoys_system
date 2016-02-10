@@ -2627,7 +2627,18 @@ class FormHelper extends AppHelper {
 					break;
 			}
 		}
-		$opt = implode($separator, $selects);
+
+		//type='date'の場合にハイフンを指定の文字にする為
+		$opt = '';
+		if (is_array($separator)) {
+   			$i = 0;
+    		foreach($selects as $select) {
+        		$opt .= $select . $separator[$i];
+        		$i++;
+    		}
+		} else {
+    		$opt = implode($separator, $selects);
+		}
 
 		$attrs['Minute']['interval'] = $interval;
 		switch ($timeFormat) {

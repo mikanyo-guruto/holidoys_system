@@ -1,0 +1,212 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 6rem;
+}
+
+#flashMessage {
+    margin-top: 20px;
+}
+
+/* main-layout */
+
+.main-header {
+    width: 100%;
+    height: 65px;
+    background-color: #002a3a;
+}
+
+.main-header-content {
+    margin: 0 auto;
+}
+
+.main-header-content a:hover {
+    text-decoration: none;
+}
+
+.main-header h1 {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 500;
+    color: #fff;
+    margin: 12px 0 0;
+    padding: 10px 0px;
+    vertical-align:middle;
+    font-family: arial, sans-serif;
+}
+
+.main-header-logo {
+    margin-top: 10px;
+    vertical-align: middle;
+}
+
+.main-footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 5rem;
+    background-color: #002a3a;
+}
+
+.main-footer p {
+    display: inline-block;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.main-footer small {
+    color: #fff;
+}
+
+.signin_btn {
+    float: right;
+    margin-top: 22px;
+}
+
+.signin_btn a {
+    color: #fff;
+    padding: 10px 10px;
+    border: 1px solid #fff;
+    text-decoration: none;
+}
+
+
+/* トップページ */
+
+.information-box {
+    margin: 30px auto 0;
+}
+
+.information-box-left-content {
+    float: left;
+    width: 60%;
+    height: 300px;
+}
+
+.information-box-left-content h1 {
+    margin: 10px 0 0;
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.information-box-left-content p {
+    margin-top: 50px;
+    font-size: 90px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.information-box-right-content {
+    float: left;
+    width: 40%;
+    height: 300px;
+    border: 4px solid #000;
+    text-align: center;
+    background-color: #002a3a;
+}
+
+.information-box-right-content span {
+    display: inline-block;
+    font-size: 46px;
+    color: #fff;
+    margin-top: 110px;
+}
+
+.members {
+    width: 70%;
+    margin: 20px auto 0;
+    padding: 20px;
+    border: 3px solid #000;
+}
+
+.members h2 {
+    margin: 0 0 10px;
+}
+
+.members ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.members ul li {
+    font-size: 18px;
+}
+
+.members-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.members-major {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#now-time {
+    font-family: arial, sans-serif;
+}
+
+/* ログインページ */
+.login-form {
+    width: 400px;
+}
+
+/* 公欠登録ページ */
+.form-inline label {
+    margin-right: 10px;
+    min-width: 60px;
+}
+
+.form-group > .reason {
+    width: 500px;
+    height: 200px;
+}
+
+.tab {
+    width: 500px;
+    height: 200px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs {
+    width: 500px;
+    margin: 0px 0px;
+}
+
+.tab > .tab-pane > .major,
+.tab > .tab-pane > ul {
+    list-style: none;
+    padding: 25px;
+}
+
+.form-horizontal .form-group {
+    margin-left: 0;
+}
+
+.tab input {
+    margin-right: 5px;
+}
+
+.major {
+    height: 200px;
+    overflow: hidden;
+}
+
+/* 公欠日選択 */
+.form-horizontal .public_holidays {
+	width: 85px;
+}
+
+/* 授業名選択 */
+.tuition {
+	height: 200px;
+	overflow: scroll;
+	overflow-x: hidden;
+}
