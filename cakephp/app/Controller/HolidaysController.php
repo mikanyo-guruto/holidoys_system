@@ -64,6 +64,7 @@
             	'order' => array(
                 	'create_time' => 'asc'
             	),
+							'paramType' => 'querystring'
         	)
     	);
 
