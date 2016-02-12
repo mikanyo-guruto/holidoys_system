@@ -13,7 +13,8 @@
           echo $this->Form->input('student_name', array(
               'label' => '氏名',
               'class' => 'form-control',
-              'div' => 'form-inline form-group'
+              'div' => 'form-inline form-group',
+              'default' => '田中太郎'
           ), null);
         ?>
 
@@ -21,7 +22,8 @@
           echo $this->Form->input('student_number', array(
               'label' => '学籍番号',
               'class' => 'form-control',
-              'div' => 'form-inline form-group'
+              'div' => 'form-inline form-group',
+              'default' => '14-F011-0009'
           ), null);
         ?>
 
@@ -31,6 +33,7 @@
               'class' => 'form-control',
               'div' => 'form-inline form-group',
               'type' => 'select',
+              'default' => '0',
               'options' => array(
                   '1年',
                   '2年',
@@ -178,7 +181,8 @@
       <div class="form-group">
         <?php
           echo $this->Form->textarea('reason', array(
-              'class' => 'form-control reason'
+              'class' => 'form-control reason',
+              'default' => 'インターンシップのため'
           ));
         ?>
       </div>
