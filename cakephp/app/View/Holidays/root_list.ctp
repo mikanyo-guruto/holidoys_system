@@ -38,7 +38,7 @@
 				<th>名前</th>
 				<th>公欠日</th>
 				<th>公欠授業名</th>
-				<th>理由</th>
+				<th class="reson">理由</th>
 				<th>詳細</th>
 			</tr>
 			<?php foreach($students as $date): ?>
