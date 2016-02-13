@@ -55,7 +55,7 @@
 				<td><?php echo h($date['Holiday']['public_holidays']) ?></td>
 				<td><?php echo h($date['Tuition']['name']) ?></td>
 				<td><?php echo h($date['Holiday']['reason']) ?></td>
-				<td><?php echo $this->Html->link('詳細', array('action' => 'root_detail', $date['Holiday']['id']), array('class' => 'btn btn-info')); ?></td>
+				<td class="detail"><?php echo $this->Html->link('詳細', array('action' => 'root_detail', $date['Holiday']['id']), array('class' => 'btn btn-info')); ?></td>
 			</tr>
 			<?php endforeach; ?>
 		</table>

@@ -20,6 +20,14 @@
 	width: 400px;
 }
 
+.table .detail {
+	text-align: center;
+}
+
+.table th {
+	text-align: center;
+}
+
 .table td {
 	font-size: 18px;
 }
